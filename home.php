@@ -24,7 +24,6 @@ die;
 <body>
 
     <header>
-    <h1>PRUEBA</h1>
         <div id="header-info">
             <h3 class="text-success"> <?php $us = isset($_SESSION['nickuser']) ? ($_SESSION['nickuser']) : '';
                 $ap = isset($_SESSION['nickapellido']) ? ($_SESSION['nickapellido']) : ''; echo 'Bienvenid@: '.$us.' '.$ap; ?>
