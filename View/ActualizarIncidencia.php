@@ -11,7 +11,7 @@ $incidencia = $GLOBALS['incidencia']
                         <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
                     </svg>
                 </div>
-                <h1>Nueva incidencia:</h1>
+                <h1>Actualizar incidencia:</h1>
             </div>
         </div>
 
@@ -135,7 +135,7 @@ $incidencia = $GLOBALS['incidencia']
     $(document).ready(function (){
 
         //Validaciones
-        $("#frmActualizarIncidencia").validate({
+        const validator = $("#frmActualizarIncidencia").validate({
             rules:{
                 reporta: {
                     required: true
@@ -234,43 +234,45 @@ $incidencia = $GLOBALS['incidencia']
                 }*/
 
                 // AJAX request
-                $.ajax({
-                    url: 'Controller/IncidenciasController.php',
-                    type: 'POST',
-                    data: form_data,
-                    dataType: 'json',
-                    contentType: false,
-                    processData: false,
-                    success: function (response) {
-                        /*
-                            for(var index = 0; index < response.file_array.length; index++) {
-                                var src = response.file_array[index];
-                                console.log(src);
-                                // Add img element in <div id='preview'>
-                                $('#preview').append('<img src="'+src+'" width="200px;" height="200px">');
-                            }*/  
-                        console.log(response.result);
-                        if(response.result != 0){
-                            alert("Actualización exitosa!!");
+                if(validator.form()){
+                    $.ajax({
+                        url: 'Controller/IncidenciasController.php',
+                        type: 'POST',
+                        data: form_data,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        success: function (response) {
+                            /*
+                                for(var index = 0; index < response.file_array.length; index++) {
+                                    var src = response.file_array[index];
+                                    console.log(src);
+                                    // Add img element in <div id='preview'>
+                                    $('#preview').append('<img src="'+src+'" width="200px;" height="200px">');
+                                }*/  
+                            console.log(response.result);
+                            if(response.result != 0){
+                                alert("Actualización exitosa!!");
 
-                            $.ajax({
-                                type:'GET',
-                                url: 'Controller/IncidenciasController.php',
-                                data: { data:JSON.stringify(''), action:'listarIncidencias'},
-                                success: function(response){
-                                    $('#content').html(response);
-                                }
-                            });     
-                        }
+                                $.ajax({
+                                    type:'GET',
+                                    url: 'Controller/IncidenciasController.php',
+                                    data: { data:JSON.stringify(''), action:'listarIncidencias'},
+                                    success: function(response){
+                                        $('#content').html(response);
+                                    }
+                                });     
+                            }
 
-                        else{
-                                alert("No se pudo registrar la transmisión");
+                            else{
+                                    alert("No se pudo registrar la transmisión");
+                            }
+                        },
+                        error: function(xhr){
+                            console.log(xhr);
                         }
-                    },
-                    error: function(xhr){
-                        console.log(xhr);
-                    }
-                });
+                    });
+                }
 
                 /*AJAX request
 
