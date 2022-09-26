@@ -45,7 +45,8 @@
         const msg = {
             id: ''
         };
-        $("#frmCrearSoporte").validate({
+        
+        const validator = $("#frmCrearSoporte").validate({
             rules:{
                 nombre: {
                     required: true
@@ -111,42 +112,44 @@
             }*/
 
             // AJAX request
-            $.ajax({
-                url: 'Controller/CursosController.php',
-                type: 'POST',
-                data: form_data,
-                dataType: 'json',
-                contentType: false,
-                processData: false,
-                success: function (response) {
-                    /*
-                        for(var index = 0; index < response.file_array.length; index++) {
-                            var src = response.file_array[index];
-                            console.log(src);
-                            // Add img element in <div id='preview'>
-                            $('#preview').append('<img src="'+src+'" width="200px;" height="200px">');
-                        }*/  
-                    console.log(response.result);
-                    if(response.result != 0){
-                        alert("Registro exitoso!!");
-                        $.ajax({
-                            type:'GET',
-                            url: 'Controller/CursosController.php',
-                            data: { data:JSON.stringify(''), action:'listarCursos'},
-                            success: function(response){
-                                $('#content').html(response);
-                            }
-                        });     
-                    }
+            if(validator.form()){
+                $.ajax({
+                    url: 'Controller/CursosController.php',
+                    type: 'POST',
+                    data: form_data,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        /*
+                            for(var index = 0; index < response.file_array.length; index++) {
+                                var src = response.file_array[index];
+                                console.log(src);
+                                // Add img element in <div id='preview'>
+                                $('#preview').append('<img src="'+src+'" width="200px;" height="200px">');
+                            }*/  
+                        console.log(response.result);
+                        if(response.result != 0){
+                            alert("Registro exitoso!!");
+                            $.ajax({
+                                type:'GET',
+                                url: 'Controller/CursosController.php',
+                                data: { data:JSON.stringify(''), action:'listarCursos'},
+                                success: function(response){
+                                    $('#content').html(response);
+                                }
+                            });     
+                        }
 
-                    else{
-                            alert("No se pudo registrar el curso");
+                        else{
+                                alert("No se pudo registrar el curso");
+                        }
+                    },
+                    error: function(xhr){
+                        console.log(xhr);
                     }
-                },
-                error: function(xhr){
-                    console.log(xhr);
-                }
-            });
+                });
+            }
 
             /*AJAX request
 
