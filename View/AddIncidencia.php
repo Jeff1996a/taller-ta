@@ -92,6 +92,9 @@
         //Validaciones
         const validator = $("#frmCrearIncidencia").validate({
             rules:{
+                nombre:{
+                    required: true
+                },
                 reporta: {
                     required: true
                 },
@@ -114,6 +117,9 @@
                 }
             },
             messages:{
+                nombre:{
+                    required: "Ingrese un nombre a la incidencia!"
+                },
                 reporta: {
                     required: "Ingrese la persona que reporta!"
                 },

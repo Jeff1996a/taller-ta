@@ -137,6 +137,9 @@ $incidencia = $GLOBALS['incidencia']
         //Validaciones
         const validator = $("#frmActualizarIncidencia").validate({
             rules:{
+                nombre:{
+                    required: true
+                },
                 reporta: {
                     required: true
                 },
@@ -159,6 +162,9 @@ $incidencia = $GLOBALS['incidencia']
                 }
             },
             messages:{
+                nombre:{
+                    required: "Ingrese un nombre a la transmisión"
+                },
                 reporta: {
                     required: "Ingrese la persona que reporta!"
                 },
