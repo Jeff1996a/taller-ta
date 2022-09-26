@@ -98,7 +98,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
             $category = $data->{'category'};
 
-            include_once ('../View/AddHistoryRecord.php');
+            include_once ('../View/pruebafiles.php');
         }
 
         elseif($action == "viewAccesories"){
