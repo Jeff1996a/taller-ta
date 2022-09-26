@@ -147,8 +147,8 @@
 <!--===============================================================================================-->
 	<script src="/vendor2/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="app/vendor2/bootstrap/js/popper.js"></script>
-	<script src="app/vendor2/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/vendor2/bootstrap/js/popper.js"></script>
+	<script src="/vendor2/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 	<script src="/vendor2/select2/select2.min.js"></script>
 <!--===============================================================================================-->
