@@ -1,4 +1,9 @@
 <?php 
+session_start();
+if (!isset($_SESSION['usuario_sesion'])) {
+header('Location: index.php');
+die;
+}
 $incidencia = $GLOBALS['incidencia']
 ?>
 
