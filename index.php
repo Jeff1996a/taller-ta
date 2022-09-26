@@ -143,19 +143,19 @@
 	?>
 	
 <!--===============================================================================================-->
-	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="/vendor2/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/vendor/animsition/js/animsition.min.js"></script>
+	<script src="/vendor2/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="app/vendor/bootstrap/js/popper.js"></script>
-	<script src="app/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="app/vendor2/bootstrap/js/popper.js"></script>
+	<script src="app/vendor2/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/vendor/select2/select2.min.js"></script>
+	<script src="/vendor2/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/vendor/daterangepicker/moment.min.js"></script>
-	<script src="/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="/vendor2/daterangepicker/moment.min.js"></script>
+	<script src="/vendor2/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="/vendor/countdowntime/countdowntime.js"></script>
+	<script src="/vendor2/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="/js/main.js"></script>
 
