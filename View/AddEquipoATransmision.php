@@ -45,7 +45,9 @@
         const msg = {
             id: ''
         };
-        $("#frmEquiposTransmision").validate({
+
+        //Validation
+        const validator  = $("#frmEquiposTransmision").validate({
             rules:{
                 serie: {
                     required: true
@@ -114,43 +116,45 @@
             }*/
 
             // AJAX request
-            $.ajax({
-                url: 'Controller/TransmisionController.php',
-                type: 'POST',
-                data: form_data,
-                dataType: 'json',
-                contentType: false,
-                processData: false,
-                success: function (response) {
-                    /*
-                        for(var index = 0; index < response.file_array.length; index++) {
-                            var src = response.file_array[index];
-                            console.log(src);
-                            // Add img element in <div id='preview'>
-                            $('#preview').append('<img src="'+src+'" width="200px;" height="200px">');
-                        }*/  
-                    console.log(response.result);
-                    if(response.result != 0){
-                        alert("Registro exitoso!!");
-                        msg.id = '<?=$GLOBALS['id']?>';
-                        $.ajax({
-                            type:'GET',
-                            url: 'Controller/TransmisionController.php',
-                            data: { data:JSON.stringify(msg), action:'listarAccesorios'},
-                            success: function(response){
-                                $('#content').html(response);
-                            }
-                        });     
-                    }
+            if(validator.form()){
+                $.ajax({
+                    url: 'Controller/TransmisionController.php',
+                    type: 'POST',
+                    data: form_data,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        /*
+                            for(var index = 0; index < response.file_array.length; index++) {
+                                var src = response.file_array[index];
+                                console.log(src);
+                                // Add img element in <div id='preview'>
+                                $('#preview').append('<img src="'+src+'" width="200px;" height="200px">');
+                            }*/  
+                        console.log(response.result);
+                        if(response.result != 0){
+                            alert("Registro exitoso!!");
+                            msg.id = '<?=$GLOBALS['id']?>';
+                            $.ajax({
+                                type:'GET',
+                                url: 'Controller/TransmisionController.php',
+                                data: { data:JSON.stringify(msg), action:'listarAccesorios'},
+                                success: function(response){
+                                    $('#content').html(response);
+                                }
+                            });     
+                        }
 
-                    else{
-                            alert("No se pudo registrar la transmisión");
+                        else{
+                                alert("No se pudo registrar la transmisión");
+                        }
+                    },
+                    error: function(xhr){
+                        console.log(xhr);
                     }
-                },
-                error: function(xhr){
-                    console.log(xhr);
-                }
-            });
+                });
+            }
 
             /*AJAX request
 
