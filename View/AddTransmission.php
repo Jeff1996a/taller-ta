@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario_sesion'])) {
+header('Location: index.php');
+die;
+}
+?>
+
+
 <form action="" method="post" id="transmision-form" enctype="multipart/form-data>
     <div class="container-fluid">
         <div class="container-fluid">
@@ -30,7 +39,7 @@
             <div class="mb-2 col-6">
                 <label for="txtResponsable" class="col-sm-12 col-form-label">Responsable:</label>
                 <div class="col-sm-12">
-                    <input type="text" class="form-control" id="txtTecnico" name="tecnico" style="text-transform:uppercase">
+                    <input type="text" class="form-control" id="txtTecnico" name="tecnico" value="<?php echo $_SESSION['nickuser'].' '.$_SESSION['nickapellido']; ?>"  style="text-transform:uppercase" disabled>
                 </div>
             </div>
 
