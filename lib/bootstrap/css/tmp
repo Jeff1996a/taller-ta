@@ -1,0 +1,32 @@
+<label for="combodisponible" id="labeldisponible">Disponibilidad:</label>
+			<select name="combodisponible" id="disponible">
+				<option value="">Seleccione una opción</option>
+				<option value="1">Disponible</option>
+				<option value="2">Ocupado</option>
+			</select>
+
+			<label for="comboresponsable" id="labelresponsable">Responsable:</label>
+			<select name="comboresponsable" id="responsable">
+				<option value="">Seleccione una opción</option>
+				<?php
+				include 'config.php';
+				$sql111 = "SELECT DISTINCT responsable from equipos ORDER BY responsable ASC";
+				@ $link111 = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE_NAME);
+                if (!$link111) {
+                    header('Location: ' . PAGINA_ERROR);
+                    die;
+                }
+				$rs111 = mysqli_query($link111, $sql111);
+                mysqli_close($link111);
+                while ($row111 = mysqli_fetch_assoc($rs111)){
+                	//if($wh != $row2['lote']){
+           	       		echo "<option value='{$row111['responsable']}'>{$row111['responsable']}</option>";
+           	       	//}	
+                }
+			?>
+			</select>
+
+
+
+			<input type="submit" value="Consultar filtros" class="submitlistado2" />
+		<input class="clearlistado" type="button" value="Listar toda la base" onclick="location='equipment_list2.php'"/>

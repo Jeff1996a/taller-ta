@@ -1,0 +1,155 @@
+------------------------
+Enlazar Excel con MySQL:
+------------------------
+
+Antes que nada, se debe generar la base de datos con un usuario administrador de la misma.
+
+#mysql_secure_installation
+#mysql -u root -p
+Enter pass: ****
+
+mysql> create database inmosolucion character set utf8;
+mysql> create user admin@'localhost';
+mysql> set password for 'admin'@'localhost' = PASSWORD('Zabbix2017.');
+mysql> grant all on inmosolucion.* to 'admin'@'localhost';
+mysql> grant all on inmosolucion.* to 'root'@'[ip_cliente]' IDENTIFIED BY '[aqui_la_clave]';
+mysql> grant all privileges on *.* to admin@'%' IDENTIFIED BY '[aqui_la_clave]'; (Para dar permisos externos de cualquier ip al usuario)
+mysql> flush privileges;
+
+mysql> grant create view on inmosolucion.* to inmovendor@'%' IDENTIFIED BY 'Zabbix2017.';
+mysql> grant execute on inmosolucion.* to inmovendor@'%' IDENTIFIED BY 'Zabbix2017.';
+mysql> grant index on inmosolucion.* to inmovendor@'%' IDENTIFIED BY 'Zabbix2017.';
+mysql> grant insert on inmosolucion.* to inmovendor@'%' IDENTIFIED BY 'Zabbix2017.';
+mysql> grant select on inmosolucion.* to inmovendor@'%' IDENTIFIED BY 'Zabbix2017.';
+mysql> grant show view on inmosolucion.* to inmovendor@'%' IDENTIFIED BY 'Zabbix2017.';
+
+mysql> grant update on inmosolucion.* to inmovendor@'%' IDENTIFIED BY 'Zabbix2017.';
+
+mysql> drop user inmovendor1;
+
+mysql> show databases;
+mysql> use inmosolucion;
+mysql> 
+mysql> show tables;
+mysql> show columns from clientes;
+mysql> show table status;
+mysql> show table status like 'clientes';
+mysql> show table status where `nombre` like 'clientes';
+mysql> quit;
+
+Para ver los usuario dentro del sistema SQL:
+
+mysql> use database mysql;
+mysql> select User from mysql.user;
+
+Para borrar una base de datos;
+
+mysql> drop database base;
+
+Para borrar los registros de una tabla:
+
+mysql> truncate table `Tabla`;
+
+Para borrar una tabla:
+
+mysql> drop table `Tabla`;
+
+Una vez hecho esto, aplicar las reglas en iptables para abrir el puerto 3306 en TCP:
+
+iptables -A INPUT -s 0.0.0.0/0 -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT
+iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT
+iptables -A INPUT -i eth0 -p tcp --dport 3306 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT -i eth0 -p udp --dport 3306 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT -i eth0 -m state --state NEW -p tcp --dport 3306 -j ACCEPT
+
+iptables -A INPUT -i eth1 -s 192.168.0.66 -p tcp --destination-port 3306 -j ACCEPT (CASO LAN)
+iptables -A INPUT -i eth0 -s 0.0.0.0 -p tcp --destination-port 3306 -j ACCEPT (CASO WAN)
+
+Colocar la ip del computador que va a acceder a la base de datos
+
+Si se desea redirigir el tráfico hacia un servidor mysql con ip privada:
+
+iptables -t nat -A PREROUTING -s 0.0.0.0/0 -p tcp --dport 3306 -j DNAT --to-destination 192.168.0.1:3306
+
+Para habilitar el acceso remoto a la base de datos en el servidor:
+
+#gedit /etc/my.cnf
+
+Aumentar las lineas o si existen, descomentarlas abajo de [mysqld]:
+
+skip-external-locking
+bind-address = 0.0.0.0 (ip que va a escuchar el servicio remoto mysqld)
+
+Entrar a mysql y colocar los siguientes comandos para el acceso remoto:
+
+#mysql -u root -p
+Enter pass: ****
+
+mysql> grant all on ventasinmo.* TO 'inmoventas'@'*' identified by 'Zabbix2017.';
+mysql> flush privileges;
+
+----------------------------------
+Para la interfaz gráfica de MySQL:
+----------------------------------
+
+Primero se debe instalar el MySQL 5.1.7 en Windows:
+
+Usar el paquete Workbenchx32 o x64 que es de interfaz web gráfica para el manejo de la base de datos.
+
+EL siguiente comando, crea una tabla llamada "proyectos" dentro de la base de datos "ventasinmo"; con dos registros de nombre y ciudad.
+
+	CREATE TABLE  `inmosolucion`.`clientes` (
+
+	 `id` int (5),
+	 `nombre` varchar(20),
+
+	 `ciudad` varchar(20),
+	 `cuota` float(20)	
+	);					
+
+	CREATE TABLE  `inmosolucion`.`cotizaciones_inmo` ( `Inmueble #` int(5), `Proyecto` varchar(30), `Nombres` varchar(30), `Apellidos` varchar(30), `Celular` int(10), `E-Mail` varchar(20), `Cedula` int(10), `Ciudad` varchar(30), `Tipo de Inmueble` varchar(20), `Area (m2)` float(10), `Precio del Inmueble` float(10), `Plazo de Entrega (meses)` int(5), `Valor de Reservacion` float(10), `Saldo Diferido` float(10), `Valor de Cuotas` float(10), `Plazo Diferido (meses)` int(5));
+	CREATE TABLE  `yaku_vida`.`clientes_lunes` ( `Cliente #` int(5), `Nombres` varchar(30), `Apellidos` varchar(30), `Telefono Fijo` int(10), `Celular` int(10), `Direccion` varchar(40), `Cantidad` int(5), `Frecuencia (dias)` int(5), `Precio` float(10));
+
+	create table amigos (
+	 id int(11) default '0' not null auto_increment,
+	 nombre varchar(25),
+	 apellidos varchar(25),
+	 dirección varchar(50),
+	 ciudad varchar(50),
+	 pais varchar(50),
+	 primary key (id)
+	);
+
+Cambiar el nombre del campo en una tabla:
+
+	alter table `tabla_de_prueba` change `campo_indice_1` `nuevo_nombre_campo` int(11) unsigned not null;
+
+Para insertar datos en los registros asociados a la tabla creada:
+
+	INSERT INTO `inmosolucion`.`clientes_pontevedra` (`id`, `Nombres`, `Apellidos`, `Telefono`, `E-Mail`, `Cedula`, `Direccion`, `Proyecto`, `Tipo de Inmueble`, `Area (m2)`, `Precio del Inmueble`, `Plazo de Entrega (meses)`, `Valor de Reservacion`, `Saldo Diferido`, `Plazo diferido (meses)`) VALUES ('1', 'Christian Alejandro', 'Mora Campoverde', '1213141516', 'qw@wq', '1213141516', 'Llano Grande', 'Pontevedra', 'Casa', '500', '120000', '12', '10000', '110000', '60');
+
+Para eliminar datos en los registros asociados a la tabla creada:
+
+	DELETE FROM `inmosolucion`.`clientes_pontevedra` WHERE `id` = '1' AND `Nombres` = 'Christian Alejandro' AND `Apellidos` = 'Mora Campoverde' AND `Telefono` = '1213141516' AND `E-Mail` = 'qw@wq' AND `Cedula` = '1213141516' AND `Direccion` = 'Llano Grande' AND `Proyecto` = 'Pontevedra' AND `Tipo de Inmueble` = 'Casa' AND `Area (m2)` = '500' AND `Precio del Inmueble` = '120000' AND `Plazo de Entrega (meses)` = '12' AND `Valor de Reservacion` = '10000' AND `Saldo Diferido` = '110000' AND `Plazo diferido (meses)` = '60';
+
+Para ver los datos en los campos:
+
+	select * from tabla;
+
+Para ver datos especificos en la tabla:
+
+	select * from `tabla` where `id` = '7';
+	select `nombre`,`abono` from `clientes` order by `abono` asc;
+	select * from `ciudades` where `ciudad_poblacion`>='500000' and `abono`<='1000';
+
+Para actualizar los registros en los campos:
+
+	update `tabla` set `nombre`='Sergio',`apellido`='Ramos',`abono`='3000' where `id`='3';
+
+Para renombrar una tabla:
+
+	rename table `nombre_base_de_datos`.`nombre_original` to `nombre_base_de_datos`.`nuevo_nombre`;
+
+Para actualizar los registros de una tabla:
+
+	

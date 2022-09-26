@@ -1,0 +1,26 @@
+UPDATE `usuarios` SET `Password`= MD5 ('kkike775') WHERE `Nombre`= ('Christian');
+
+ALTER TABLE arrendatarios AUTO_INCREMENT = 214;
+
+UPDATE arrendatarios SET estado = 'En construccion' WHERE estado = 'CONSTRUCCION - PARALIZADA';
+
+SELECT * FROM Alumno WHERE Matricula = (SELECT MAX(Matricula) from Alumno) (Obtiene el ultimo regsitro)
+
+------------------------------------------------------
+Importar datos EXCEL a MySQL:
+------------------------------------------------------
+
+Primero transformar el archivos xls o xlsx a csv, que
+es de limitado por comas.
+
+Abrir el archivo generado desde "guardar como" de Excel en extension csv en un bloc de notas y eliminar los nombres de las columnas, se guarda nuevamente el archivo e ir al phpMyAdmin del servidor web para importar los datos.
+
+Debe existir una tabla con el mismo numero de columnas del archivo que vamos a importar y el orden de las columnas el gestor de base de datos, las toma de izquierda a derecha del archivo csv sin cabeceras generado; de manera que deberá en la tabla considerarse el tipo de campos a donde se importará la información para evitar errores.
+
+Una vez seleccionada la tabla en phpMyAdmin, se hace clic en importar en la parte superior de las opciones disponibles y en la ventana que se abre, se busca el archivo csv generado y se lo importa a la base; en la parte de mas abajo de la ventana de importacion de datos, se elige la segunda opcion donde dice extensión del archivo "CSV usando LOAD DATA", se deberá cambiar la opción de la derecha que dice "Campos terminados en" de ";" a "."; segun como se hayan generado los datos en el archivo csv.
+
+A pesar de la pagina de error, si se vuelve acceder al servidor de phpMyAdmin después de reiniciar el servicio web; se podrá verificar que exitosamente se han importado los datos.
+
+Bibliografia Web:
+
+https://www.youtube.com/watch?v=Z1qjVMi_GAo
