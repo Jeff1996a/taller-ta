@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario_sesion'])) {
+header('Location: index.php');
+die;
+}
+?>
 <form action="" method="post" id="addEquipmentForm" enctype="multipart/form-data">
     <div class="container-fluid">
         <div class="container-fluid">
@@ -62,7 +69,7 @@
             <div class="mb-2 col">
                 <label for="txtResponsable" class="col-sm-2 col-form-label">Responsable:</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="txtResponsable" name="responsable" style="text-transform:uppercase">
+                    <input type="text" class="form-control" id="txtResponsable" value="<?php echo $_SESSION['nickuser']; ?>" name="responsable" style="text-transform:uppercase">
                 </div>
             </div>
 
