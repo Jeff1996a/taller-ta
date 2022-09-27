@@ -34,24 +34,8 @@ class ActividadModel
         mysqli_query($this->dbConn ,"SET @nick='".$obj->usuario."'");
         mysqli_query($this->dbConn ,"SET @correo='".$obj->email."'");
         mysqli_query($this->dbConn ,"SET @acti='".$obj->actividad."'");
-        mysqli_query($this->dbConn ,"SET @id_reg='".$obj->id_registro."'");
 
-        mysqli_multi_query ($this->dbConn, "CALL uspCrearActividad(@nick,@correo,@acti,@id_reg)") OR DIE (mysqli_error($this->dbConn));
-
-        while (mysqli_more_results($this->dbConn)) {
-
-            if ($result = mysqli_store_result($this->dbConn)) {
-
-                return $result;
-            }
-        }
-    }
-
-    //Obtener una actividad
-    function ObtenerCurso($id){
-        mysqli_query($this->dbConn ,"SET @id='".$id."'");
-
-        mysqli_multi_query ($this->dbConn, "CALL uspObtenerCurso(@id)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query ($this->dbConn, "CALL uspCrearActividad(@nick,@correo,@acti)") OR DIE (mysqli_error($this->dbConn));
 
         while (mysqli_more_results($this->dbConn)) {
 
@@ -62,39 +46,6 @@ class ActividadModel
         }
     }
 
-    //Actualizar incidencia
-    function ActualizarCurso($obj){
-        mysqli_query($this->dbConn ,"SET @id='".$obj->id_curso."'");
-        mysqli_query($this->dbConn ,"SET @Nom='".$obj->nombreCurso."'");
-        mysqli_query($this->dbConn ,"SET @Descr='".$obj->descripcion."'");
-        mysqli_query($this->dbConn ,"SET @Url='".$obj->url."'");
-
-        mysqli_multi_query ($this->dbConn, "CALL uspActualizarCurso(@id,@Nom,@Descr,@Url)") OR DIE (mysqli_error($this->dbConn));
-
-        while (mysqli_more_results($this->dbConn)) {
-
-            if ($result = mysqli_store_result($this->dbConn)) {
-
-                return $result;
-            }
-        }
-    }
-
-    //Eliminar incidencia
-    function EliminarCurso($id){
-        mysqli_query($this->dbConn ,"SET @id='".$id."'");
-
-        mysqli_multi_query ($this->dbConn, "CALL uspEliminarCurso(@id)") 
-            OR DIE (mysqli_error($this->dbConn));
-
-        while (mysqli_more_results($this->dbConn)) {
-
-            if ($result = mysqli_store_result($this->dbConn)) {
-
-                return $result;
-            }
-        }
-    }
 
 
 }
