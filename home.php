@@ -84,6 +84,22 @@ die;
                         <a class="nav-link text-white" href="#">Soporte</a>
                     </li>
 
+                    <?php
+                        if($_SESSION['rol'] == 'admin'){
+                            echo '
+                            <li class="nav-item active" id="btnSoporte">
+                                <a class="nav-link text-white" href="#">Control actividades</a>
+                            </li>';
+                        }
+
+                        else {
+                            echo '
+                            <li class="nav-item active" id="btnSoporte" style="display: none;">
+                                <a class="nav-link text-white" href="#">Control actividades</a>
+                            </li>'; 
+                        }
+                    ?>
+
                     <li class="nav-item active">
                         <a class="nav-link text-white" style="margin-right: 15px;" href="salir.php">Salir</a>
                     </li>
