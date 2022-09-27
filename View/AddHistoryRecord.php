@@ -200,7 +200,6 @@ die;
 
             const tecnico = $('#txtTecnico').val();
             const correo = $('#txtCorreo').val();
-            const fecha_ingreso = $('#dpIngreso').val();
             const fecha_ult_mant = $('#dpUltMant').val();
             const problema = $('#txtProblema').val();
             const solucion = $('#txtSolucion').val();
@@ -283,6 +282,29 @@ die;
                                 data: {data:JSON.stringify(msg), action:'viewHistory'},
                                 success: function(response){
                                     $('#content').html(response);
+                                }
+                            });
+
+                            const nick = '<?=$_SESSION['nicknick']?>';
+                            const email = '<?=$_SESSION['email']?>';
+                            const actividad = "Nuevo historial: \n" +
+                                "Técnico: " + tecnico + "\n" + 
+                                "Email: " + email + "\n" + 
+                                "Fecha: " + fecha_ult_mant + "\n" + 
+                                "Prob: " + problema + "\n" + 
+                                "Sol: " + solucion + "\n" + 
+                                "Obs: " + observacion + "\n" + 
+                                "Equ: " + id_equipo + "\n" ;
+
+                            console.log(nick + " " + email + " " + actividad );
+
+                            $.ajax({
+                                url: 'Controller/ActividadController.php',
+                                type: 'POST',
+                                data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
+                                dataType: 'json',
+                                success: function(response){
+                                    console.log(response);
                                 }
                             });
                     }
