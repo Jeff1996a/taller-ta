@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
             $title = "Actividades registradas";
 
-            $list = $actividd->LeerActividades();
+            $list = $actividad->LeerActividades();
 
             $num_filas = mysqli_num_rows($list);
 
