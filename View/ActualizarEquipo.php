@@ -119,7 +119,7 @@ $equipment = $GLOBALS['equipment'];
                 if($_SESSION['rol'] == 'admin'){
                     echo '
                     <div class="mb-2 col">
-                        <label for="txtResponsable" class="col-sm-2 col-form-label">Responsable del equipo:</label>
+                        <label for="txtResponsable" class="col-sm-6 col-form-label">Responsable del equipo:</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" id="txtResponsable" name="responsable" value="'.$equipment->responsable.'" style="text-transform:uppercase">
                         </div>
@@ -138,7 +138,7 @@ $equipment = $GLOBALS['equipment'];
 
                     echo '
                     <div class="mb-2 col">
-                        <label for="txtResponsable" class="col-sm-2 col-form-label">Responsable del equipo:</label>
+                        <label for="txtResponsable" class="col-sm-6 col-form-label">Responsable del equipo:</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" id="txtResponsable" name="responsable" value="'.$equipment->responsable.'" style="text-transform:uppercase" disabled>
                         </div>

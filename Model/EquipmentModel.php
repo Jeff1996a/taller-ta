@@ -11,6 +11,7 @@ class EquipmentModel
     public $num_serie;
     public $fecha_inst;
     public $proveedor;
+    public $tecnico;
     public $responsable;
     public $departamento;
     public $id_estado;
@@ -41,6 +42,7 @@ class EquipmentModel
         mysqli_query($this->dbConn ,"SET @Proveedor='".$obj->proveedor."'");
         mysqli_query($this->dbConn ,"SET @Id_estado='".$obj->id_estado."'");
         mysqli_query($this->dbConn ,"SET @Id_tipo_equi='".$obj->id_tipo_equi."'");
+        mysqli_query($this->dbConn ,"SET @Tecnico='".$obj->tecnico."'");
         mysqli_query($this->dbConn ,"SET @Responsable='".$obj->responsable."'");
         mysqli_query($this->dbConn ,"SET @Departamento='".$obj->departamento."'");
         mysqli_query($this->dbConn ,"SET @Disponibilidad='".$obj->disponibilidad."'");
@@ -48,7 +50,7 @@ class EquipmentModel
 
 
         mysqli_multi_query ($this->dbConn, "CALL uspCrearEquipo(@Marca, @Modelo, @Descripcion, @SerieTa, @Serie,
-                            @Fecha,@Proveedor,@Id_estado,@Id_tipo_equi, @Responsable, @Departamento, @Disponibilidad, @Observacion)")
+                            @Fecha,@Proveedor,@Id_estado,@Id_tipo_equi,@Tecnico, @Responsable, @Departamento, @Disponibilidad, @Observacion)")
             OR DIE (mysqli_error($this->dbConn));
 
         while (mysqli_more_results($this->dbConn)) {
