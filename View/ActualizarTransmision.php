@@ -56,7 +56,7 @@ $transmision = $GLOBALS['transmision']
                 if($_SESSION['rol'] == 'admin'){
                     echo '
                     <div class="mb-2 col-6">
-                        <label for="txtResponsable" class="col-sm-12 col-form-label">Responsable:</label>
+                        <label for="txtResponsable" class="col-sm-12 col-form-label">Responsable de transmisión:</label>
                         <div class="col-sm-12">
                             <input type="text" class="form-control" id="txtTecnico" name="tecnico" value="'.$transmision->tecnico.'" style="text-transform:uppercase">
                         </div>
@@ -65,7 +65,7 @@ $transmision = $GLOBALS['transmision']
                 else{
                     echo '
                     <div class="mb-2 col-6">
-                        <label for="txtResponsable" class="col-sm-12 col-form-label">Responsable:</label>
+                        <label for="txtResponsable" class="col-sm-12 col-form-label">Responsable de transmisión:</label>
                         <div class="col-sm-12">
                             <input type="text" class="form-control" id="txtTecnico" name="tecnico" value="'.$transmision->tecnico.'" style="text-transform:uppercase" disabled>
                         </div>

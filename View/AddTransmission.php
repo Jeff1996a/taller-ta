@@ -37,7 +37,7 @@ die;
             </div>
 
             <div class="mb-2 col-6">
-                <label for="txtResponsable" class="col-sm-12 col-form-label">Responsable:</label>
+                <label for="txtResponsable" class="col-sm-12 col-form-label">Responsable de transmisión:</label>
                 <div class="col-sm-12">
                     <input type="text" class="form-control" id="txtTecnico" name="tecnico" value="<?php echo $_SESSION['nickuser'].' '.$_SESSION['nickapellido']; ?>"  style="text-transform:uppercase" disabled>
                 </div>
