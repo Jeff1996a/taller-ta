@@ -67,9 +67,19 @@ die;
 
         <div class="mb-2 row">
             <div class="mb-2 col">
+                <label for="txtTecnico" class="col-sm-2 col-form-label">Técnico responsable:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="txtTecnico" value="<?php echo $_SESSION['nickuser'].' '.$_SESSION['nickapellido']; ?>" name="tecnico" style="text-transform:uppercase" disabled>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mb-2 row">
+            <div class="mb-2 col">
                 <label for="txtResponsable" class="col-sm-2 col-form-label">Responsable:</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="txtResponsable" value="<?php echo $_SESSION['nickuser'].' '.$_SESSION['nickapellido']; ?>" name="responsable" style="text-transform:uppercase" disabled>
+                    <input type="text" class="form-control" id="txtResponsable"  name="responsable" style="text-transform:uppercase">
                 </div>
             </div>
 
