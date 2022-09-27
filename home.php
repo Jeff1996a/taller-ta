@@ -245,7 +245,7 @@ die;
             msg.category = 'actividades';
             $.ajax({
                 type:'GET',
-                url: 'Controller/ActividadesController.php',
+                url: 'Controller/ActividadController.php',
                 data: {data:JSON.stringify(msg), action: 'listarActividades'},
                 success: function(response){
                     $('#content').html(response);
