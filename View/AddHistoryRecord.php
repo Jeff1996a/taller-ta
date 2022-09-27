@@ -104,12 +104,14 @@ die;
 
         </div>
 
+        <!--
         <div class="row mb-2">
             <div class="mb-2">
                 <label for="file" class="form-label">Adjuntos:</label>
                 <input class="form-control" type="file" id="file">
             </div>
         </div>
+        -->
 
 
         <div class="row text-center">
