@@ -352,8 +352,12 @@ die;
                                     "Descripción: " + descripcion + "\n" + 
                                     "Serie TA: " + serieTA + "\n" + 
                                     "Serie: " + serie + "\n" + 
+                                    "Proveedor: " + proveedor + "\n" + 
+                                    "Estado: " + estado + "\n" + 
+                                    "Tipo equipo: " + tipoEquipo + "\n" + 
                                     "Responsable: " + responsable + "\n" + 
                                     "Departamento: " + departamento + "\n" +
+                                    "Observación: " + observacion + "\n" +  
                                     "Categoría: " + msg.category;
 
                                 console.log(nick + " " + email + " " + actividad );
