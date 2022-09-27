@@ -344,7 +344,7 @@ die;
                                     }
                                 });
 
-                                const nick = '<?=$_SESSION['nickname']?>';
+                                const nick = '<?=$_SESSION['nicknick']?>';
                                 const email = '<?=$_SESSION['email']?>';
                                 const actividad = "Se agregó un nuevo equipo: \n" +
                                     "Marca: " + marca + "\n" + 
