@@ -41,8 +41,6 @@ die;
                 <td><strong>Usuario</strong></td>
                 <td><strong>Email</strong></td>
                 <td><strong>Acción</strong></td>
-                <td><strong>Num. registro</strong></td>
-                <td></td>
             </tr>
             </thead>
 
