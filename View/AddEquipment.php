@@ -360,6 +360,7 @@ die;
                                     "Departamento: " + departamento + "\n" +
                                     "Disponibiliad: " + disponibilidad + "\n" + 
                                     "Observación: " + observacion + "\n" +  
+                                    "Categoría: " + msg.category;
 
                                 console.log(nick + " " + email + " " + actividad );
                                 /*
