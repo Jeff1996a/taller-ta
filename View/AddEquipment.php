@@ -352,8 +352,7 @@ die;
                                     "Descr: " + descripcion + "\n" + 
                                     "SerieTA: " + serieTA + "\n" + 
                                     "Serie: " + serie + "\n" + 
-                                    "Estado: " + estado + "\n" + 
-                                    "Responsable: " + responsable + "\n" + 
+                                    "Resp: " + responsable + "\n" + 
                                     "Depa: " + departamento + "\n" +  
                                     "Tipo: " + msg.category;
 
