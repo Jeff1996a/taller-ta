@@ -370,7 +370,7 @@ die;
                                     contentType: false,
                                     processData: false,
                                     success: function(response){
-                                        $('#content').html(response);
+                                        console.log(response);
                                     }
                                 });
                             }
