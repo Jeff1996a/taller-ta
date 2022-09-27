@@ -352,7 +352,6 @@ die;
                                     "Descripción: " + descripcion + "\n" + 
                                     "Serie TA: " + serieTA + "\n" + 
                                     "Serie: " + serie + "\n" + 
-                                    "Fecha: " + fecha + "\n" + 
                                     "Proveedor: " + proveedor + "\n" + 
                                     "Estado: " + estado + "\n" + 
                                     "Tipo equipo: " + tipoEquipo + "\n" + 
