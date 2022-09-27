@@ -105,7 +105,7 @@ die;
 
             <div class="mb-2 col">
                 <label for="cbTipoEquipo">Tipo de Equipo:</label>
-                <select class="form-select btn-outline-success" aria-label="Default select example" id="cbTipoEquipo" name="tipoEquipo">
+                <select name="tipo" class="form-select btn-outline-success" aria-label="Default select example" id="cbTipoEquipo" name="tipoEquipo">
                     <option selected>Seleccione una categoría</option>
                     <option value="1">Audio</option>
                     <option value="2">Cables</option>
@@ -155,6 +155,9 @@ die;
                 marca: {
                     required: true
                 },
+                tipo:{
+                    required:true
+                }
                 modelo:{
                     required: true
                 },
@@ -193,6 +196,9 @@ die;
                 },
                 modelo: {
                     required: "Ingrese el modelo!"
+                },
+                tipo:{
+                    required: "Seleccione un tipo de equipo"
                 },
                 codigoTA :{
                     required: "Ingrese el código !"
