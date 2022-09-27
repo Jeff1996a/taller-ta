@@ -171,6 +171,9 @@ die;
                 proveedor:{
                     required: true
                 },
+                tecnico:{
+                    required: true
+                },
                 responsable: {
                     required: true
                 },
@@ -203,6 +206,9 @@ die;
                 },
                 proveedor:{
                     required: "Ingrese el proveedor!"
+                },
+                tecnico:{
+                    required: "Ingrese el técnico responsable!"
                 },
                 responsable:{
                     required: "Ingrese un responsable!"
@@ -245,6 +251,7 @@ die;
             const proveedor = $('#txtProveedor').val();
             const estado = $('#cbEstado').val();
             const tipoEquipo = $('#cbTipoEquipo').val();
+            const tecnico = $('#txtTecnico').val();
             const responsable = $('#txtResponsable').val();
             const departamento = $('#txtDepartamento').val();
             const observacion = $('#txtObservacion').val();
@@ -285,6 +292,7 @@ die;
             form_data.append('proveedor', proveedor);
             form_data.append('estado', estado);
             form_data.append('tipoEquipo', tipoEquipo);
+            form_data.append('tecnico', tecnico);
             form_data.append('responsable', responsable);
             form_data.append('departamento', departamento);
             form_data.append('disponibilidad', 'si');

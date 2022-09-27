@@ -270,13 +270,14 @@ class EquipmentModel
         mysqli_query($this->dbConn ,"SET @Prov='".$obj->proveedor."'");
         mysqli_query($this->dbConn ,"SET @IdEstado='".$obj->id_estado."'");
         mysqli_query($this->dbConn ,"SET @IdTipoEqui='".$obj->id_tipo_equi."'");
+        mysqli_query($this->dbConn ,"SET @Tec='".$obj->tecnico."'");
         mysqli_query($this->dbConn ,"SET @Resp='".$obj->responsable."'");
         mysqli_query($this->dbConn ,"SET @Dep='".$obj->departamento."'");
         mysqli_query($this->dbConn ,"SET @Obs='".$obj->observacion."'");
 
 
         mysqli_multi_query ($this->dbConn, "CALL uspActualizarEquipo(@Id, @Marca, @Modelo, @Descr, @NumSerieTa, @NumSerie,
-                            @Obs, @FechaInstalacion,@Prov,@IdEstado,@IdTipoEqui, @Resp, @Dep)")
+                            @Obs, @FechaInstalacion,@Prov,@IdEstado,@IdTipoEqui, @Tec, @Resp, @Dep)")
             OR DIE (mysqli_error($this->dbConn));
 
         while (mysqli_more_results($this->dbConn)) {

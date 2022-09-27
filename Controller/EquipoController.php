@@ -141,6 +141,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
                 $equipment->num_serie = $row['num_serie'];
                 $equipment->fecha_inst = $row['fecha_instalacion'];
                 $equipment->proveedor = $row['proveedor'];
+                $equipment->tecnico = $row['tecnico'];
                 $equipment->responsable = $row['responsable'];
                 $equipment->departamento = $row['departamento'];
                 $equipment->id_estado = $row['estado'];
@@ -350,6 +351,7 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
             $equipment->proveedor = $_POST['proveedor'];
             $equipment->id_estado = $_POST['estado'];
             $equipment->id_tipo_equi = $_POST['tipoEquipo'];
+            $equipment->tecnico = $_POST['tecnico'];
             $equipment->responsable = $_POST['responsable'];
             $equipment->departamento = $_POST['departamento'];
             $equipment->disponibilidad = $_POST['disponibilidad'];
@@ -421,6 +423,7 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
             $equipment->proveedor = $_POST['proveedor'];
             $equipment->id_estado = $_POST['estado'];
             $equipment->id_tipo_equi = $_POST['tipoEquipo'];
+            $equipment->tecnico = $_POST['tecnico'];
             $equipment->responsable = $_POST['responsable'];
             $equipment->departamento = $_POST['departamento'];
             $equipment->disponibilidad = $_POST['disponibilidad'];
