@@ -37,16 +37,15 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
         $action = $_POST['action'];
         $data = json_decode($_POST['data']);
 
-        include_once ('../Model/ActividadModel.php');
+        if($action == 'addActividad'){
+            include_once ('../Model/ActividadModel.php');
 
-        $actividad = new ActividadModel();
+            $actividad = new ActividadModel();
 
-        if($_POST['action'] == 'addActividad'){
-
-            $actividad->usuario = $_POST['usuario'];
-            $actividad->email = $_POST['email'];
-            $actividad->actividad = $_POST['actividad'];
-          
+            $actividad->usuario = $data->{'usuario'};
+            $actividad->email = $data->{'email'};
+            $actividad->actividad = $data->{'actividad'};
+            
             $row = mysqli_fetch_assoc($actividad->Actividad($actividad));
 
             $actividad->result = $row["resultado"];
@@ -56,5 +55,5 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
             die;
         }
     }
-
 }
+
