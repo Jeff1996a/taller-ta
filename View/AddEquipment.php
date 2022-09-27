@@ -95,7 +95,7 @@ die;
             <div class="mb-2 col">
                 <label for="cbEstado">Estado:</label>
                 <select class="form-select btn-outline-success" aria-label="Default select example" id="cbEstado" name="estado">
-                    <option value="" selected>Seleccione un estado</option>
+                    <option selected>Seleccione un estado</option>
                     <option value="1">Almacenado</option>
                     <option value="2">Averiado</option>
                     <option value="3">Óptimo</option>
@@ -104,8 +104,8 @@ die;
             </div>
 
             <div class="mb-2 col">
-                <label for="cbTipoEquipo">Tipo de Equipo:</label>
-                <select name="tipo" class="form-select btn-outline-success" aria-label="Default select example" id="cbTipoEquipo" name="tipoEquipo">
+                <label for="cbTipoEquipo" >Tipo de Equipo:</label>
+                <select class="form-select btn-outline-success" aria-label="Default select example" id="cbTipoEquipo" name="tipoEquipo">
                     <option selected>Seleccione una categoría</option>
                     <option value="1">Audio</option>
                     <option value="2">Cables</option>
@@ -155,9 +155,6 @@ die;
                 marca: {
                     required: true
                 },
-                tipo:{
-                    required:true
-                }
                 modelo:{
                     required: true
                 },
@@ -196,9 +193,6 @@ die;
                 },
                 modelo: {
                     required: "Ingrese el modelo!"
-                },
-                tipo:{
-                    required: "Seleccione un tipo de equipo"
                 },
                 codigoTA :{
                     required: "Ingrese el código !"
