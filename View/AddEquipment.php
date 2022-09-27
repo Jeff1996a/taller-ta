@@ -354,7 +354,7 @@ die;
                                     "Serie: " + serie + "\n" + 
                                     "Fecha: " + fecha + "\n" + 
                                     "Proveedor: " + proveedor + "\n" + 
-                                    "Estado: " + estdo + "\n" + 
+                                    "Estado: " + estado + "\n" + 
                                     "Tipo equipo: " + tipoEquipo + "\n" + 
                                     "Responsable: " + responsable + "\n" + 
                                     "Departamento: " + departamento + "\n" +
