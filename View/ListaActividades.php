@@ -53,7 +53,7 @@ die;
         
                     <td><?php echo $row["fecha"]; ?> </td>
                     <td><?php echo $row["usuario"]; ?> </td>
-                    <td><?php echo $row["usuario"]; ?> </td>
+                    <td><?php echo $row["email"]; ?> </td>
                     <td><?php echo $row["actividad"]; ?> </td>
 
                 </tr>
