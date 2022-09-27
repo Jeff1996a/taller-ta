@@ -37,10 +37,6 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
         $action = $_POST['action'];
         $data = json_decode($_POST['data']);
 
-
-    }
-
-    elseif(isset($_POST)){
         include_once ('../Model/ActividadModel.php');
 
         $actividad = new ActividadModel();

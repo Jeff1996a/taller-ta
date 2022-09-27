@@ -362,18 +362,17 @@ die;
                                     "Categoría: " + msg.category;
 
                                 console.log(nick + " " + email + " " + actividad );
-                                /*
                                 $.ajax({
-                                    url: 'Controller/EquipoController.php',
+                                    url: 'Controller/ActividadController.php',
                                     type: 'POST',
-                                    data: form_data,
+                                    data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
                                     dataType: 'json',
                                     contentType: false,
                                     processData: false,
                                     success: function(response){
                                         $('#content').html(response);
                                     }
-                                });*/
+                                });
                             }
 
                         else{
