@@ -265,7 +265,7 @@ die;
             }
 
             if(tipoEquipo == 3){
-                msg.category = 'edicion';
+                msg.category = 'edición';
             }
 
             if(tipoEquipo == 4){
@@ -346,18 +346,14 @@ die;
 
                                 const nick = '<?=$_SESSION['nicknick']?>';
                                 const email = '<?=$_SESSION['email']?>';
-                                const actividad = "Se agregó un nuevo equipo: \n" +
+                                const actividad = "Agregó un equipo: \n" +
                                     "Marca: " + marca + "\n" + 
                                     "Modelo: " + modelo + "\n" + 
                                     "Descripción: " + descripcion + "\n" + 
                                     "Serie TA: " + serieTA + "\n" + 
                                     "Serie: " + serie + "\n" + 
-                                    "Proveedor: " + proveedor + "\n" + 
-                                    "Estado: " + estado + "\n" + 
-                                    "Tipo equipo: " + tipoEquipo + "\n" + 
                                     "Responsable: " + responsable + "\n" + 
                                     "Departamento: " + departamento + "\n" +
-                                    "Observación: " + observacion + "\n" +  
                                     "Categoría: " + msg.category;
 
                                 console.log(nick + " " + email + " " + actividad );
