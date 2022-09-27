@@ -65,7 +65,7 @@ die;
     <br/>
 
     <div class="table-responsive">
-        <table id="tblEquipos" class="table table-hover">
+        <table id="tblEquipos" class="table-warning table-hover">
             <thead style="background-color:  #005aa9; color: white;">
             <tr>
                 <td><strong>Cod.</strong></td>
