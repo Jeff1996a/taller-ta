@@ -114,6 +114,7 @@
         		mysqli_close($link3);
         		$nickcalc = mysqli_fetch_assoc($rs3);
         		$nickweb = $nickcalc['nombre'];
+				$email = $nickcalc['email'];
         		$apellidoweb = $nickcalc['apellido'];
         		$nickweb2 = $nickcalc['nickname'];
         		$rol = $nickcalc['rol'];
@@ -125,7 +126,7 @@
         		$_SESSION['nickapellido'] = $apellidoweb;
         		$_SESSION['nicknick'] = $nickweb2;
         		$_SESSION['rol'] = $rol;
-        		$_SESSION['sql_calculada'] = '';
+        		$_SESSION['email'] = $email;
         		$_SESSION['sql_calculada2'] = '';
         		$_SESSION['sql_calculada3'] = '';
         		$_SESSION['sql_calculada4'] = '';

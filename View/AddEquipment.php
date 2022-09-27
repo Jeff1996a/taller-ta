@@ -334,7 +334,7 @@ die;
                                 alert("Registro exitoso!!");
 
                                 console.log(msg.category);
-
+                                
                                 $.ajax({
                                     type:'GET',
                                     url: 'Controller/EquipoController.php',
@@ -343,6 +343,37 @@ die;
                                         $('#content').html(response);
                                     }
                                 });
+
+                                const nick = '<?=$_SESSION['nickname']?>';
+                                const email = '<?=$_SESSION['email']?>';
+                                const actividad = "Se agregó un nuevo equipo: \n" +
+                                    "Marca: " + marca + "\n" + 
+                                    "Modelo: " + modelo + "\n" + 
+                                    "Descripción: " + descripcion + "\n" + 
+                                    "Serie TA: " + serieTA + "\n" + 
+                                    "Serie: " + serie + "\n" + 
+                                    "Fecha: " + fecha + "\n" + 
+                                    "Proveedor: " + proveedor + "\n" + 
+                                    "Estado: " + estdo + "\n" + 
+                                    "Tipo equipo: " + tipoEquipo + "\n" + 
+                                    "Responsable: " + responsable + "\n" + 
+                                    "Departamento: " + departamento + "\n" +
+                                    "Disponibiliad: " + disponibilidad + "\n" + 
+                                    "Observación: " + observacion + "\n" +  
+
+                                console.log(nick + " " + email + " " + actividad );
+                                /*
+                                $.ajax({
+                                    url: 'Controller/EquipoController.php',
+                                    type: 'POST',
+                                    data: form_data,
+                                    dataType: 'json',
+                                    contentType: false,
+                                    processData: false,
+                                    success: function(response){
+                                        $('#content').html(response);
+                                    }
+                                });*/
                             }
 
                         else{
