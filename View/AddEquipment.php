@@ -358,7 +358,6 @@ die;
                                     "Tipo equipo: " + tipoEquipo + "\n" + 
                                     "Responsable: " + responsable + "\n" + 
                                     "Departamento: " + departamento + "\n" +
-                                    "Disponibiliad: " + disponibilidad + "\n" + 
                                     "Observación: " + observacion + "\n" +  
                                     "Categoría: " + msg.category;
 
