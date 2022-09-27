@@ -46,7 +46,7 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
             $actividad->email = $data->{'email'};
             $actividad->actividad = $data->{'actividad'};
             
-            $row = mysqli_fetch_assoc($actividad->Actividad($actividad));
+            $row = mysqli_fetch_assoc($actividad->CrearActividad($actividad));
 
             $actividad->result = $row["resultado"];
 
