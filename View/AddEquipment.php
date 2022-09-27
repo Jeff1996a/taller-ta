@@ -362,13 +362,12 @@ die;
                                     "Categoría: " + msg.category;
 
                                 console.log(nick + " " + email + " " + actividad );
+
                                 $.ajax({
                                     url: 'Controller/ActividadController.php',
                                     type: 'POST',
                                     data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
                                     dataType: 'json',
-                                    contentType: false,
-                                    processData: false,
                                     success: function(response){
                                         console.log(response);
                                     }
