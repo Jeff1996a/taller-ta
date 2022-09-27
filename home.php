@@ -88,14 +88,14 @@ die;
                         if($_SESSION['rol'] == 'admin'){
                             echo '
                             <li class="nav-item active" id="btnSoporte">
-                                <a class="nav-link text-white" href="#">Control actividades</a>
+                                <a class="nav-link text-white" href="#">Control</a>
                             </li>';
                         }
 
                         else {
                             echo '
                             <li class="nav-item active" id="btnSoporte" style="display: none;">
-                                <a class="nav-link text-white" href="#">Control actividades</a>
+                                <a class="nav-link text-white" href="#">Control</a>
                             </li>'; 
                         }
                     ?>
