@@ -349,16 +349,13 @@ die;
                                 const actividad = "Agregó un equipo: \n" +
                                     "Marca: " + marca + "\n" + 
                                     "Modelo: " + modelo + "\n" + 
-                                    "Descripción: " + descripcion + "\n" + 
-                                    "Serie TA: " + serieTA + "\n" + 
+                                    "Descr: " + descripcion + "\n" + 
+                                    "SerieTA: " + serieTA + "\n" + 
                                     "Serie: " + serie + "\n" + 
-                                    "Proveedor: " + proveedor + "\n" + 
                                     "Estado: " + estado + "\n" + 
-                                    "Tipo equipo: " + tipoEquipo + "\n" + 
                                     "Responsable: " + responsable + "\n" + 
-                                    "Departamento: " + departamento + "\n" +
-                                    "Observación: " + observacion + "\n" +  
-                                    "Categoría: " + msg.category;
+                                    "Depa: " + departamento + "\n" +  
+                                    "Tipo: " + msg.category;
 
                                 console.log(nick + " " + email + " " + actividad );
 
