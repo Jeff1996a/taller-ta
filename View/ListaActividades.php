@@ -54,7 +54,7 @@ die;
                     <td><?php echo $row["fecha"]; ?> </td>
                     <td><?php echo $row["usuario"]; ?> </td>
                     <td><?php echo $row["email"]; ?> </td>
-                    <td><textarea><?php echo $row["actividad"]; ?></textarea> </td>
+                    <td><p><?php echo $row["actividad"]; ?></p></td>
 
                 </tr>
                 <?php
