@@ -90,7 +90,7 @@ $equipment = $GLOBALS['equipment'];
                     echo '
                     <div class="mb-2 col">
                         <label for="txtTecnico" class="col-sm-2 col-form-label">Técnico responsable:</label>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <input type="text" class="form-control" id="txtTecnico" value="'.$_SESSION['nickuser'].' '.$_SESSION['nickapellido'].'" name="tecnico" style="text-transform:uppercase">
                         </div>
                     </div>';
@@ -102,7 +102,7 @@ $equipment = $GLOBALS['equipment'];
                     echo '
                     <div class="mb-2 col">
                         <label for="txtTecnico" class="col-sm-2 col-form-label">Técnico responsable:</label>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <input type="text" class="form-control" id="txtTecnico" value="'.$_SESSION['nickuser'].' '.$_SESSION['nickapellido'].'" name="tecnico" style="text-transform:uppercase" disabled>
                         </div>
                     </div>';
