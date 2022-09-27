@@ -87,14 +87,14 @@ die;
                     <?php
                         if($_SESSION['rol'] == 'admin'){
                             echo '
-                            <li class="nav-item active" id="btnSoporte">
+                            <li class="nav-item active" id="btnControl">
                                 <a class="nav-link text-white" href="#">Control</a>
                             </li>';
                         }
 
                         else {
                             echo '
-                            <li class="nav-item active" id="btnSoporte" style="display: none;">
+                            <li class="nav-item active" id="btnControl" style="display: none;">
                                 <a class="nav-link text-white" href="#">Control</a>
                             </li>'; 
                         }
@@ -234,6 +234,19 @@ die;
                 type:'GET',
                 url: 'Controller/CursosController.php',
                 data: {data:JSON.stringify(msg), action: 'listarCursos'},
+                success: function(response){
+                    $('#content').html(response);
+                }
+            });
+
+        });
+
+        $("#btnControl").click(function(){
+            msg.category = 'actividades';
+            $.ajax({
+                type:'GET',
+                url: 'Controller/ActividadesController.php',
+                data: {data:JSON.stringify(msg), action: 'listarActividades'},
                 success: function(response){
                     $('#content').html(response);
                 }

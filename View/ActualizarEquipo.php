@@ -75,13 +75,42 @@ $equipment = $GLOBALS['equipment'];
 
                 }
             ?>
-        
-            <div class="mb-2 col">
+        </div>
+
+        <div class="mb-2 col">
                 <label for="txtProveedor" class="col-sm-2 col-form-label">Proveedor:</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="txtProveedor" name="proveedor" value="<?php echo $equipment->proveedor; ?>" style="text-transform:uppercase">
                 </div>
-            </div>
+        </div>
+
+        <div class="mb-2 row">
+        <?php
+                if($_SESSION['rol'] == 'admin'){
+                    echo '
+                    <div class="mb-2 col">
+                        <label for="txtTecnico" class="col-sm-2 col-form-label">Técnico responsable:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="txtTecnico" value="'.$_SESSION['nickuser'].' '.$_SESSION['nickapellido'].'" name="tecnico" style="text-transform:uppercase">
+                        </div>
+                    </div>';
+
+                }
+
+                else{
+
+                    echo '
+                    <div class="mb-2 col">
+                        <label for="txtTecnico" class="col-sm-2 col-form-label">Técnico responsable:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="txtTecnico" value="'.$_SESSION['nickuser'].' '.$_SESSION['nickapellido'].'" name="tecnico" style="text-transform:uppercase" disabled>
+                        </div>
+                    </div>';
+
+                }
+            ?>
+            
+
         </div>
 
         <div class="mb-2 row">
