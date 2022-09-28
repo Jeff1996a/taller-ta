@@ -104,7 +104,8 @@ die;
     $(document).ready(function(){
         const msg = {
             category: '',
-            id: ''
+            id: '',
+            idAcc:''
         };
 
         $("#btnRegresar").click(function(){
@@ -136,8 +137,8 @@ die;
         //Eliminar registro historial
        $('#tblHistorial').on('click', '#btnEliminar', function () {
             const row =  $(this).closest('tr');
-            msg.id = row.find("td.idHistorial").text();
-
+            msg.idAcc = row.find("td.idHistorial").text();
+            msg.id = '<?=$GLOBALS['id']?>';
             msg.category = '<?=$GLOBALS['category']?>';
 
             if (confirm('Desea eliminar el registro')) {
