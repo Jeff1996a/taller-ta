@@ -291,7 +291,6 @@ die;
                             const nick = '<?=$_SESSION['nicknick']?>';
                             const email = '<?=$_SESSION['email']?>';
                             const actividad = "Nuevo registro historial: \n" +
-                                "Tec: " + tecnico + "\n" + 
                                 "Prob: " + problema + "\n" + 
                                 "Sol: " + solucion + "\n" + 
                                 "Obs: " + observacion + "\n" + 

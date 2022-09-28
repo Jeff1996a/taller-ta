@@ -350,7 +350,6 @@ die;
                                     "SerieTA: " + serieTA + "\n" + 
                                     "Serie: " + serie + "\n" + 
                                     "Resp: " + responsable + "\n" + 
-                                    "Tec: " + tecnico + "\n" +  
                                     "Tipo: " + msg.category;
 
                                 console.log(nick + " " + email + " " + actividad );
