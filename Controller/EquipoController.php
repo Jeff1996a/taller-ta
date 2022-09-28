@@ -327,7 +327,7 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $equipment =  new EquipmentModel();
 
-            $id = $data->{'idAccesorio'};
+            $id = $data->{'id'};
 
             $category = $data->{'category'};
 
