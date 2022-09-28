@@ -259,29 +259,27 @@ die;
             const departamento = $('#txtDepartamento').val();
             const observacion = $('#txtObservacion').val();
 
-            const idTipo;
-
             if(tipoEquipo == 'audio'){
-               idTipo = 1;
+               const idTipo = 1;
             }
 
             if(tipoEquipo == 'cables'){
-                idTipo = 2;
+                const idTipo = 2;
             }
 
             if(tipoEquipo == 'edición'){
-                idTipo = 3;
+                const idTipo = 3;
             }
 
             if(tipoEquipo == 'electricidad'){
-                idTipo = 4;
+                const idTipo = 4;
             }
 
             if(tipoEquipo =='red'){
-                idTipo = 5;
+                const idTipo = 5;
             }
             if(tipoEquipo == 'video'){
-                idTipo = 6;
+                const idTipo = 6;
             }
 
             console.log("idTipo:" + idTipo);
