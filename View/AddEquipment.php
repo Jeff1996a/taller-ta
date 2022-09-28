@@ -294,7 +294,7 @@ die;
             form_data.append('fechaInst', fecha);
             form_data.append('proveedor', proveedor);
             form_data.append('estado', estado);
-            form_data.append('tipoEquipo', <?=$GLOBALS['category']?>);
+            form_data.append('tipoEquipo', '<?=$GLOBALS['category']?>');
             form_data.append('tecnico', tecnico);
             form_data.append('responsable', responsable);
             form_data.append('departamento', departamento);
