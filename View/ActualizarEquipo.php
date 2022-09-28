@@ -219,6 +219,20 @@ $equipment = $GLOBALS['equipment'];
             category: ''
         };
 
+        const marca2 = $('#txtMarca').val();
+        const modelo2 = $('#txtModelo').val();
+        const descripcion2 = $('#txtDescripcion').val();
+        const serieTA2 = $('#txtSerieTa').val();
+        const serie2 = $('#txtSerie').val();
+        const fecha2 = $('#dpFechaInst').val();
+        const proveedor2 = $('#txtProveedor').val();
+        const estado2 = $('#cbEstado').val();
+        const tipoEquipo2 = '<?=$GLOBALS['category']?>'
+        const tecnico2 = $('#txtTecnico').val();
+        const responsable2 = $('#txtResponsable').val();
+        const departamento2 = $('#txtDepartamento').val();
+        const observacion2 = $('#txtObservacion').val();
+
         //Validaciones
         const validator = $("#frmActualizarEquipo").validate({
             rules:{
@@ -410,7 +424,36 @@ $equipment = $GLOBALS['equipment'];
                                         $('#content').html(response);
                                     }
                                 });
-                            }
+
+                                var actividad = "Actualizó equipo: \n";
+
+                                if(marca != marca2){
+                                    actividad += "Marca: " + marca;
+                                }
+                                if(modelo != modelo2){
+                                    actividad += "Modelo: " + marca;
+                                }
+                                if(descripcion != descripcion2){
+                                    actividad += "Desc: " + descripcion;
+                                }
+                               
+                                const nick = '<?=$_SESSION['nicknick']?>';
+                                const email = '<?=$_SESSION['email']?>';
+
+                                console.log(nick + " " + email + " " + actividad );
+
+                                $.ajax({
+                                    url: 'Controller/ActividadController.php',
+                                    type: 'POST',
+                                    data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
+                                    dataType: 'json',
+                                    success: function(response){
+                                        console.log(response);
+                                    }
+                                });
+
+                            
+                        }
 
                         else{
                                 alert("El equipo ya se encuentra registrado");
