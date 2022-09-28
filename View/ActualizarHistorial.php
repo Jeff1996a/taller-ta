@@ -55,7 +55,7 @@ $historial = $GLOBALS['historial'];
                     <div class="mb-2 col-6">
                         <label for="txtCorreo" class="col-sm-12 col-form-label">Correo:</label>
                         <div class="col-sm-12">
-                            <input type="email" class="form-control" id="txtCorreo" name="correo" value="'.$historial->correo.'">
+                            <input type="email" class="form-control" id="txtCorreo" name="correo" value="'.$historial->correo.'" disabled>
                         </div>
                     </div>';
                 }
