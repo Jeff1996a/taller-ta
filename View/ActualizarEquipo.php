@@ -426,7 +426,7 @@ $equipment = $GLOBALS['equipment'];
                                 });
 
                                 var actividad = "Actualizó equipo: \n" + 
-                                        "Cod.Equ: " + id_equipo;
+                                        "Cod.Equ: " + <?=$equipment->id_equipo?>;
 
                                 if(marca != marca2){
                                     actividad += "Marca: " + marca;
