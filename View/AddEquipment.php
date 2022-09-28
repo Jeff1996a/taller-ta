@@ -259,7 +259,8 @@ die;
             const departamento = $('#txtDepartamento').val();
             const observacion = $('#txtObservacion').val();
 
-            const idTipo = 0;
+            const idTipo;
+
             if(tipoEquipo == 'audio'){
                idTipo = 1;
             }
