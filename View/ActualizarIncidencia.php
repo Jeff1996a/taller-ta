@@ -139,6 +139,16 @@ $incidencia = $GLOBALS['incidencia']
 <script>
     $(document).ready(function (){
 
+
+        const nombre2 = $('#txtNombre').val();
+        const reporta2 = $('#txtReporta').val();
+        const responsable2 = $('#txtResponsable').val();
+        const fecha_rep2 = $('#dpInicio').val();
+        const fecha_sol2 = $('#dpFin').val();
+        const prob2 = $('#txtProblema').val();
+        const sol2 = $('#txtSolucion').val();
+        const obs2 = $('#txtObservacion').val();
+
         //Validaciones
         const validator = $("#frmActualizarIncidencia").validate({
             rules:{
@@ -272,7 +282,56 @@ $incidencia = $GLOBALS['incidencia']
                                     success: function(response){
                                         $('#content').html(response);
                                     }
-                                });     
+                                });  
+                                
+                                var actividad = "Actualizó incidencia: " +  <?=$incidencia->id_incidencia?>;
+
+                                if(nombre != nombre2){
+                                    actividad += " Nom: " + nombre + " antes: " + nombre2;
+                                }
+
+                                if(reporta != reporta2){
+                                    actividad += " Rep: " + reporta + " antes: " + reporta2;
+                                }
+
+                                if(responsable != responsable2){
+                                    actividad += " Resp: " + responsable + " antes: " + responsable2;
+                                }
+
+                                if(fecha_rep != fecha_rep2){
+                                    actividad += " FRep: " + fecha_rep + " antes: " + fecha_rep2;
+                                }
+
+                                if(fecha_sol != fecha_sol2){
+                                    actividad += " FSol: " + fecha_sol + " antes: " + fecha_sol2;
+                                }
+
+                                if(prob != prob2){
+                                    actividad += " Prob: " + prob + " antes: " + prob2;
+                                }
+
+                                if(sol != sol2){
+                                    actividad += " Sol: " + sol + " antes: " + sol2;
+                                }
+
+                                if(obs != obs2){
+                                    actividad += " Obs: " + obs + " antes: " + obs2;
+                                }
+
+                                const nick = '<?=$_SESSION['nicknick']?>';
+                                const email = '<?=$_SESSION['email']?>';
+
+                                console.log(nick + " " + email + " " + actividad );
+
+                                $.ajax({
+                                    url: 'Controller/ActividadController.php',
+                                    type: 'POST',
+                                    data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
+                                    dataType: 'json',
+                                    success: function(response){
+                                        console.log(response);
+                                    }
+                                });
                             }
 
                             else{
