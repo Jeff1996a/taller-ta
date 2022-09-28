@@ -336,6 +336,7 @@ die;
                         if(response.result != 0){
                                 alert("Registro exitoso!!");
 
+                                msg.category = '<?=$GLOBALS['category']?>';
                                 console.log(msg.category);
                                 
                                 $.ajax({
