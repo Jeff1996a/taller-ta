@@ -346,14 +346,14 @@ $transmision = $GLOBALS['transmision']
                             }
 
                             const nick = '<?=$_SESSION['nicknick']?>';
-                            const email = '<?=$_SESSION['email']?>';
+                            const correo = '<?=$_SESSION['email']?>';
 
-                            console.log(nick + " " + email + " " + actividad );
+                            console.log(nick + " " + correo + " " + actividad );
 
                             $.ajax({
                                 url: 'Controller/ActividadController.php',
                                 type: 'POST',
-                                data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
+                                data: {data: JSON.stringify({'usuario': nick, 'email':correo, 'actividad':actividad}), action:'addActividad'},
                                 dataType: 'json',
                                 success: function(response){
                                     console.log(response);
