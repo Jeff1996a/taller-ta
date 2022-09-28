@@ -157,7 +157,7 @@ $equipment = $GLOBALS['equipment'];
         </div>
 
         <div class="mb-2 row">
-            <div class="mb-2 col">
+            <div class="mb-2 col-sm-4">
                 <label for="cbEstado">Estado:</label>
                 <?php
                     echo '<select class="form-select btn-outline-success" aria-label="Default select example" id="cbEstado"   name="estado">';
