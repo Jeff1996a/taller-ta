@@ -253,36 +253,37 @@ die;
             const fecha = $('#dpFechaInst').val();
             const proveedor = $('#txtProveedor').val();
             const estado = $('#cbEstado').val();
-            const tipoEquipo = $('#cbTipoEquipo').val();
+            const tipoEquipo = '<?=$GLOBALS['category']?>';
             const tecnico = $('#txtTecnico').val();
             const responsable = $('#txtResponsable').val();
             const departamento = $('#txtDepartamento').val();
             const observacion = $('#txtObservacion').val();
 
-            if(tipoEquipo == 1){
-                msg.category = 'audio';
+            const idTipo = 0;
+            if(tipoEquipo == 'audio'){
+               idTipo = 1;
             }
 
-            if(tipoEquipo == 2){
-                msg.category = 'cables';
+            if(tipoEquipo == 'cables'){
+                idTipo = 2;
             }
 
-            if(tipoEquipo == 3){
-                msg.category = 'edición';
+            if(tipoEquipo == 'edición'){
+                idTipo = 3;
             }
 
-            if(tipoEquipo == 4){
-                msg.category = 'electricidad';
+            if(tipoEquipo == 'electricidad'){
+                idTipo = 4;
             }
 
-            if(tipoEquipo == 5){
-                msg.category = 'red';
+            if(tipoEquipo =='red'){
+                idTipo = 5;
             }
-            if(tipoEquipo == 6){
-                msg.category = 'video';
+            if(tipoEquipo == 'video'){
+                idTipo = 6;
             }
 
-            console.log("Categoria:" + msg.category);
+            console.log("idTipo:" + idTipo);
 
             const form_data = new FormData();
 
@@ -294,7 +295,7 @@ die;
             form_data.append('fechaInst', fecha);
             form_data.append('proveedor', proveedor);
             form_data.append('estado', estado);
-            form_data.append('tipoEquipo', '<?=$GLOBALS['category']?>');
+            form_data.append('tipoEquipo', idTipo);
             form_data.append('tecnico', tecnico);
             form_data.append('responsable', responsable);
             form_data.append('departamento', departamento);
