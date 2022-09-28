@@ -347,13 +347,10 @@ die;
                                 const nick = '<?=$_SESSION['nicknick']?>';
                                 const email = '<?=$_SESSION['email']?>';
                                 const actividad = "Agregó un equipo: \n" +
-                                    "Marca: " + marca + "\n" + 
-                                    "Modelo: " + modelo + "\n" + 
-                                    "Descr: " + descripcion + "\n" + 
                                     "SerieTA: " + serieTA + "\n" + 
                                     "Serie: " + serie + "\n" + 
                                     "Resp: " + responsable + "\n" + 
-                                    "Depa: " + departamento + "\n" +  
+                                    "Tec: " + tecnico + "\n" +  
                                     "Tipo: " + msg.category;
 
                                 console.log(nick + " " + email + " " + actividad );

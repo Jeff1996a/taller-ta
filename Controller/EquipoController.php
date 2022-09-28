@@ -357,6 +357,7 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
             $equipment->disponibilidad = $_POST['disponibilidad'];
             $equipment->observacion = $_POST['observacion'];
 
+            //Verifica la existencia de archivos en el formulario
             if(isset($_FILES['files'])){
                 // Count total files
                 $countfiles = count($_FILES['files']['name']);
@@ -412,6 +413,7 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
             die;
         }
 
+        //Actualiza el registro de un equipo
         if($_POST['action'] == 'actualizarEquipo' ){
             $equipment->id_equipo = $_POST['id_equipo'];
             $equipment->marca = $_POST['marca'];
@@ -428,6 +430,7 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
             $equipment->departamento = $_POST['departamento'];
             $equipment->disponibilidad = $_POST['disponibilidad'];
             $equipment->observacion = $_POST['observacion'];
+
 
             if(isset($_FILES['files'])){
                 // Count total files
