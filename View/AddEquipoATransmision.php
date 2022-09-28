@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario_sesion'])) {
+header('Location: index.php');
+die;
+}
+?>
 <form method="post" action="" enctype="multipart/form-data" id="frmEquiposTransmision">
     <div class="container-fluid">
         <div class="container-fluid">
