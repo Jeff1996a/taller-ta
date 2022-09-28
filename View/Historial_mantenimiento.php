@@ -104,8 +104,7 @@ die;
     $(document).ready(function(){
         const msg = {
             category: '',
-            id: '',
-            idAcc:''
+            id: ''
         };
 
         $("#btnRegresar").click(function(){
@@ -137,8 +136,8 @@ die;
         //Eliminar registro historial
        $('#tblHistorial').on('click', '#btnEliminar', function () {
             const row =  $(this).closest('tr');
-            msg.idAcc = row.find("td.idHistorial").text();
-            msg.id = '<?=$GLOBALS['id']?>';
+            msg.id = row.find("td.idHistorial").text();
+
             msg.category = '<?=$GLOBALS['category']?>';
 
             if (confirm('Desea eliminar el registro')) {
@@ -147,6 +146,7 @@ die;
                     url: 'Controller/EquipoController.php',
                     data: {data: JSON.stringify(msg), action:'eliminarHistorial'},
                     success: function (result) {
+                        msg.id = '<?=$GLOBALS['id']?>';
                         $.ajax({
                             type:'GET',
                             url: 'Controller/EquipoController.php',
