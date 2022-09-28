@@ -292,8 +292,6 @@ die;
                             const email = '<?=$_SESSION['email']?>';
                             const actividad = "Nuevo registro historial: \n" +
                                 "Prob: " + problema + "\n" + 
-                                "Sol: " + solucion + "\n" + 
-                                "Obs: " + observacion + "\n" + 
                                 "Equ: " + id_equipo + "\n" ;//Id del equipo 
 
                             console.log(nick + " " + email + " " + actividad );
