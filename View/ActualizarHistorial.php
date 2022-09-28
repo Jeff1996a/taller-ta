@@ -240,6 +240,25 @@ $historial = $GLOBALS['historial'];
         const solucion2 = $('#txtSolucion').val();
         const observacion2 = $('#txtObservacion').val();
 
+        var disp2 = '';
+        var repuesto2 = '';
+
+        if($('#rbDispSi').is(':checked')){
+            disp2 = 'Si';
+        }
+            
+        if($('#rbDispNo').is(':checked')){
+            disp2 = 'No';
+        }    
+
+        if($('#rbRepSi').is(':checked')){
+            repuesto2 = 'Si';
+        }
+            
+        if($('#rbRepNo').is(':checked')){
+            repuesto2 = 'No';
+        }
+
         const msg = {
           category: '',
           id: ''
