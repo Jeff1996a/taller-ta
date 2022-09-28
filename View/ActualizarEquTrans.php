@@ -174,7 +174,7 @@ $equTrans = $GLOBALS['equTrans'];
                             const nick = '<?=$_SESSION['nicknick']?>';
                             const email = '<?=$_SESSION['email']?>';
 
-                            console.log(nick + " " + correo + " " + actividad );
+                            console.log(nick + " " + email + " " + actividad );
 
                             $.ajax({
                                 url: 'Controller/ActividadController.php',
