@@ -425,13 +425,14 @@ $equipment = $GLOBALS['equipment'];
                                     }
                                 });
 
-                                var actividad = "Actualizó equipo: \n";
+                                var actividad = "Actualizó equipo: \n" + 
+                                        "Cod.Equ: " + id_equipo;
 
                                 if(marca != marca2){
                                     actividad += "Marca: " + marca;
                                 }
                                 if(modelo != modelo2){
-                                    actividad += "Modelo: " + marca;
+                                    actividad += "Modelo: " + modelo;
                                 }
                                 if(descripcion != descripcion2){
                                     actividad += "Desc: " + descripcion;
