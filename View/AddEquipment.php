@@ -96,14 +96,15 @@ die;
                 <label for="cbEstado">Estado:</label>
                 <select class="form-select btn-outline-success" aria-label="Default select example" id="cbEstado" name="estado">
                     <option selected>Seleccione un estado</option>
-                    <option value="1">Almacenado</option>
-                    <option value="2">Averiado</option>
-                    <option value="3">Óptimo</option>
-                    <option value="3">Operativo</option>
+                    <option value="1">Operativo: En uso</option>
+                    <option value="2">Operativo: Bodega</option>
+                    <option value="3">No operativo: de Baja</option>
+                    <option value="4">No operativo: Repuesto</option>
                 </select>
             </div>
 
-            <div class="mb-2 col">
+            <!--
+             <div class="mb-2 col">
                 <label for="cbTipoEquipo" >Tipo de Equipo:</label>
                 <select class="form-select btn-outline-success" aria-label="Default select example" id="cbTipoEquipo" name="tipoEquipo">
                     <option selected>Seleccione una categoría</option>
@@ -115,6 +116,8 @@ die;
                     <option value="6">Video</option>
                 </select>
             </div>
+            -->
+           
         </div>
 
         <div class="mb-2 row">
@@ -291,7 +294,7 @@ die;
             form_data.append('fechaInst', fecha);
             form_data.append('proveedor', proveedor);
             form_data.append('estado', estado);
-            form_data.append('tipoEquipo', tipoEquipo);
+            form_data.append('tipoEquipo', msg.category);
             form_data.append('tecnico', tecnico);
             form_data.append('responsable', responsable);
             form_data.append('departamento', departamento);
