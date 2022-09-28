@@ -493,8 +493,7 @@ $equipment = $GLOBALS['equipment'];
                                         console.log(response);
                                     }
                                 });
-
-                            
+  
                         }
 
                         else{

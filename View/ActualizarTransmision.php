@@ -164,6 +164,15 @@ $transmision = $GLOBALS['transmision']
 <script>
     $(document).ready(function (){
 
+        const nombre2 = $('#txtNombre').val();
+        const ubicacion2 = $('#txtUbicacion').val();
+        const tecnico2 = $('#txtTecnico').val();
+        const email2 = $('#txtEmail').val();
+        const movil2 = $('#txtMovil').val();
+        const inicio2 = $('#dpInicio').val();
+        const fin2 = $('#dpFin').val();
+        const observacion2 = $('#txtObservacion').val();
+
         //Validacion
         const validator = $("#frmActualizarTransmision").validate({
             rules:{
@@ -300,7 +309,56 @@ $transmision = $GLOBALS['transmision']
                                 success: function(response){
                                     $('#content').html(response);
                                 }
-                            });     
+                            }); 
+                            
+                            var actividad = "Actualizó transmisión: " +  <?=$transmision->id_transmision?>;
+
+                            if(nombre != nombre2){
+                                actividad += " Nom: " + nombre + " antes: " + nombre2;
+                            }
+
+                            if(ubicacion != ubicacion2){
+                                actividad += " Ubi: " + ubicacion + " antes: " + ubicacion2;
+                            }
+
+                            if(tecnico != tecnico2){
+                                actividad += " Tec: " + tecnico + " antes: " + tecnico2;
+                            }
+
+                            if(email != email2){
+                                actividad += " Email: " + email + " antes: " + email2;
+                            }
+
+                            if(movil != movil2){
+                                actividad += " Movil: " + movil + " antes: " + movil2;
+                            }
+
+                            if(inicio != inicio2){
+                                actividad += " FIni: " + inicio + " antes: " + inicio2;
+                            }
+
+                            if(fin != fin2){
+                                actividad += " Ffin: " + fin + " antes: " + fin2;
+                            }
+
+                            if(observacion != observacion2){
+                                actividad += " Obs: " + observacion + " antes: " + observacion2;
+                            }
+
+                            const nick = '<?=$_SESSION['nicknick']?>';
+                            const email = '<?=$_SESSION['email']?>';
+
+                            console.log(nick + " " + email + " " + actividad );
+
+                            $.ajax({
+                                url: 'Controller/ActividadController.php',
+                                type: 'POST',
+                                data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
+                                dataType: 'json',
+                                success: function(response){
+                                    console.log(response);
+                                }
+                            });
                         }
 
                         else{
