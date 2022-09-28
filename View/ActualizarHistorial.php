@@ -229,6 +229,17 @@ $historial = $GLOBALS['historial'];
     }
     $(document).ready(function () {
         
+        const id_hist_mant = <?=$GLOBALS['id']?>;
+        const id_equipo = <?=$historial->id_equipo?>;
+        const categoria = '<?=$GLOBALS['category']?>';
+        const tecnico2 = $('#txtTecnico').val();
+        const correo2 = $('#txtCorreo').val();
+        const fecha_ingreso2 = $('#dpIngreso').val();
+        const fecha_ult_mant2 = $('#dpUltMant').val();
+        const problema2 = $('#txtProblema').val();
+        const solucion2 = $('#txtSolucion').val();
+        const observacion2 = $('#txtObservacion').val();
+
         const msg = {
           category: '',
           id: ''
@@ -394,6 +405,44 @@ $historial = $GLOBALS['historial'];
                                     $('#content').html(response);
                                 }
                             });
+
+                            var actividad = "Actualizó historial equ: " +  <?=$historial->id_equipo?>;
+
+                            if(tecnico != tecnico2){
+                                actividad += " Marca: " + tecnico + " antes: " + tecnico2;
+                            }
+
+                            if(correo != correo2){
+                                actividad += " Correo: " + correo + " antes: " + correo2;
+                            }
+
+                            if(fecha_ingreso != fecha_ingreso2){
+                                actividad += " FIng: " + fecha_ingreso + " antes: " + fecha_ingreso2;
+                            }
+
+                            if(fecha_ult_mant != fecha_ult_mant2){
+                                actividad += " fUltM: " + fecha_ult_mant + " antes: " + fecha_ult_mant2;
+                            }
+
+                            if(problema != problema2){
+                                actividad += " Prob: " + problema + " antes: " + problema2;
+                            }
+
+                            if(solucion != solucion2){
+                                actividad += " Sol: " + solucion + " antes: " + solucion2;
+                            }
+
+                            if(observacion != observacion2){
+                                actividad += " Obs: " + observacion + " antes: " + observacion2;
+                            }
+
+                            if(disp != disp2){
+                                actividad += " Disp: " + disp + " antes: " + disp2;
+                            }
+
+                            if(repuesto != repuesto2){
+                                actividad += " Rep: " + repuesto + " antes: " + repuesto2;
+                            }
                     }
 
                     else{
