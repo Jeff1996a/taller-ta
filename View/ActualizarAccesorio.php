@@ -1,4 +1,9 @@
 <?php 
+session_start();
+if (!isset($_SESSION['usuario_sesion'])) {
+header('Location: index.php');
+die;
+}
 $accesorio = $GLOBALS['accesorio'];
 ?>
 <form id="accesories-form" method="post" action="" enctype="multipart/form-data">
@@ -10,7 +15,7 @@ $accesorio = $GLOBALS['accesorio'];
                         <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
                     </svg>
                 </div>
-                <h1>Nuevo registro:</h1>
+                <h1>Actualizar accesorio equipo:</h1>
             </div>
         </div>
 
@@ -96,6 +101,20 @@ $accesorio = $GLOBALS['accesorio'];
 </form>
 <script type="text/javascript">
     $(document).ready(function(){
+
+        const serie2 = $('#txtSerie').val();
+        const serieTA2 = $('#txtSerieTA').val();
+        const descripcion2 = $('#txtDescripcion').val();
+        
+        var disp2 = '';
+
+        if($('#rbDispSi').is(':checked')){
+            disp2 = 'Si';
+        }
+            
+        if($('#rbDispNo').is(':checked')){
+            disp2 = 'No';
+        }
 
         const msg = {
             category: '',
@@ -217,6 +236,39 @@ $accesorio = $GLOBALS['accesorio'];
                                     data: {data: JSON.stringify(msg), action:'viewAccesories'},
                                     success: function(response){
                                         $('#content').html(response);
+                                    }
+                                });
+
+                                var actividad = "Actualizó accesorio equ: " +  <?=$accesorio->id_equipo?>;
+
+                                if(serie != serie2){
+                                    actividad += " Serie: " + serie + " antes: " + serie2;
+                                }
+
+                                if(serieTA != serieTA2){
+                                    actividad += " CodTA: " + serieTA + " antes: " + serieTA2;
+                                }
+
+                                if(descripcion != descripcion2){
+                                    actividad += " Descr: " + descripcion + " antes: " + descripcion2;
+                                }
+
+                                if(disp != disp2){
+                                    actividad += " Disp: " + disp + " antes: " + disp2;
+                                }
+
+                                const nick = '<?=$_SESSION['nicknick']?>';
+                                const email = '<?=$_SESSION['email']?>';
+
+                                console.log(nick + " " + email + " " + actividad );
+
+                                $.ajax({
+                                    url: 'Controller/ActividadController.php',
+                                    type: 'POST',
+                                    data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
+                                    dataType: 'json',
+                                    success: function(response){
+                                        console.log(response);
                                     }
                                 });
                             }
