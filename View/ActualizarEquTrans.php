@@ -157,7 +157,7 @@ $equTrans = $GLOBALS['equTrans'];
                                 }
                             });   
                             
-                            var actividad = "Actualizó equipo trans: " +  <?=$transmision->id_transmision?>;
+                            var actividad = "Actualizó equipo trans: " +  <?=$equTrans->id_transmision?>;
 
                             if(serie != serie2){
                                 actividad += " Serie: " + serie + " antes: " + serie2;
