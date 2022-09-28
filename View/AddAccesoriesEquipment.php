@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario_sesion'])) {
+header('Location: index.php');
+die;
+}
+?>
 <form id="accesories-form" method="post" action="" enctype="multipart/form-data">
     <div class="container-fluid">
         <div class="container-fluid">
@@ -188,6 +195,26 @@
                                     data: {data: JSON.stringify(msg), action:'viewAccesories'},
                                     success: function(response){
                                         $('#content').html(response);
+                                    }
+                                });
+
+                                const nick = '<?=$_SESSION['nicknick']?>';
+                                const email = '<?=$_SESSION['email']?>';
+                                const actividad = "Agregó accessorio equipo: \n" +
+                                    "Cod.Equipo: " + id_equipo + "\n" + 
+                                    "Serie: " + serie + "\n" + 
+                                    "CodTA: " + serieTA + "\n" + 
+
+
+                                console.log(nick + " " + email + " " + actividad );
+
+                                $.ajax({
+                                    url: 'Controller/ActividadController.php',
+                                    type: 'POST',
+                                    data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
+                                    dataType: 'json',
+                                    success: function(response){
+                                        console.log(response);
                                     }
                                 });
                             }

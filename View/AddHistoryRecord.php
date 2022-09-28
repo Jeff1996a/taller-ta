@@ -290,11 +290,12 @@ die;
 
                             const nick = '<?=$_SESSION['nicknick']?>';
                             const email = '<?=$_SESSION['email']?>';
-                            const actividad = "Nuevo historial: \n" +
+                            const actividad = "Nuevo registro historial: \n" +
+                                "Tec: " + tecnico + "\n" + 
                                 "Prob: " + problema + "\n" + 
                                 "Sol: " + solucion + "\n" + 
                                 "Obs: " + observacion + "\n" + 
-                                "Equ: " + id_equipo + "\n" ;
+                                "Equ: " + id_equipo + "\n" ;//Id del equipo 
 
                             console.log(nick + " " + email + " " + actividad );
 
