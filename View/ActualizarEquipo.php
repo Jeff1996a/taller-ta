@@ -429,55 +429,55 @@ $equipment = $GLOBALS['equipment'];
                                         " Cod.Equ: " + <?=$equipment->id_equipo?>;
 
                                 if(marca != marca2){
-                                    actividad += "Marca: " + marca + " antes: " + marca2;
+                                    actividad += " Marca: " + marca + " antes: " + marca2;
                                 }
 
                                 if(modelo != modelo2){
-                                    actividad += "Modelo: " + modelo + " antes: " + modelo2;
+                                    actividad += " Modelo: " + modelo + " antes: " + modelo2;
                                 }
 
                                 if(descripcion != descripcion2){
-                                    actividad += "Desc: " + descripcion + " antes: " + descripcion2;
+                                    actividad += " Desc: " + descripcion + " antes: " + descripcion2;
                                 }
 
                                 if(serieTA != serieTA2){
-                                    actividad += "CodTA: " + serieTA + " antes: " + serieTA2;
+                                    actividad += " CodTA: " + serieTA + " antes: " + serieTA2;
                                 }
 
                                 if(serie != serie2){
-                                    actividad += "Serie: " + serie + " antes: " + serie2;
+                                    actividad += " Serie: " + serie + " antes: " + serie2;
                                 }
 
                                 if(fecha != fecha2){
-                                    actividad += "Fecha: " + fecha + " antes: " + fecha2;
+                                    actividad += " Fecha: " + fecha + " antes: " + fecha2;
                                 }
 
                                 if(proveedor != proveedor2){
-                                    actividad += "Prov: " + proveedor + " antes: " + proveedor2;
+                                    actividad += " Prov: " + proveedor + " antes: " + proveedor2;
                                 }
                                 
                                 if(estado != estado2){
-                                    actividad += "Est: " + estado + " antes: " + estado2;
+                                    actividad += " Est: " + estado + " antes: " + estado2;
                                 }
 
                                 if(tipoEquipo != tipoEquipo2){
-                                    actividad += "TEqu: " + tipoEquipo + " antes: " + tipoEquipo2;
+                                    actividad += " TEqu: " + tipoEquipo + " antes: " + tipoEquipo2;
                                 }
 
                                 if(tecnico != tecnico2){
-                                    actividad += "Tec: " + tecnico + " antes: " + tecnico2;
+                                    actividad += " Tec: " + tecnico + " antes: " + tecnico2;
                                 }
 
                                 if(responsable != responsable2){
-                                    actividad += "Resp: " + responsable + " antes: " + responsable2;
+                                    actividad += " Resp: " + responsable + " antes: " + responsable2;
                                 }
 
                                 if(departamento != departamento2){
-                                    actividad += "Dep: " + departamento + " antes: " + departamento2;
+                                    actividad += " Dep: " + departamento + " antes: " + departamento2;
                                 }
 
                                 if(observacion != observacion2){
-                                    actividad += "Obs: " + observacion + " antes: " + observacion2;
+                                    actividad += " Obs: " + observacion + " antes: " + observacion2;
                                 }
                                
                                 const nick = '<?=$_SESSION['nicknick']?>';
