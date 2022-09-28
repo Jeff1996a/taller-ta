@@ -341,7 +341,7 @@ $equipment = $GLOBALS['equipment'];
             else if(tipoEquipo == 'red'){
                 idTipo = 5;
             }
-            else if(tipoEquipo == 'video'6){
+            else if(tipoEquipo == 'video'){
                 idTipo = 6;
             }
 
@@ -399,7 +399,7 @@ $equipment = $GLOBALS['equipment'];
                         console.log(response.result);
                         if(response.result != 0){
                                 alert("Registro actualizado correctamente!!");
-
+                                msg.category = '<?=$GLOBALS['category']?>';
                                 console.log(msg.category);
 
                                 $.ajax({
