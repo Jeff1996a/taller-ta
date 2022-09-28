@@ -53,7 +53,7 @@ die;
             <div class="mb-3 col">
                 <label for="dpFechaInst" class="col-sm-3 col-form-label">Fecha instalación:</label>
                 <div class="col-sm-6">
-                    <input type="date" class="form-control" id="dpFechaInst" name="fechaInst">
+                    <input type="date" class="form-control" id="dpFechaInst" name="fechaInst" value="<?php echo date("d/m/y");?>">
                 </div>
             </div>
 
