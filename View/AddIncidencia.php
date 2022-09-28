@@ -229,7 +229,26 @@ die;
                                     success: function(response){
                                         $('#content').html(response);
                                     }
-                                });     
+                                });  
+                                
+                                const nick = '<?=$_SESSION['nicknick']?>';
+                                const email = '<?=$_SESSION['email']?>';
+                                const actividad = "Agregó incidencia: \n" +
+                                    "Rep: " + reporta + "\n" +  
+                                    "FRep: " + fecha_rep + "\n" +
+                                    "Fsol: " + fecha_sol;
+
+                                console.log(nick + " " + email + " " + actividad );
+
+                                $.ajax({
+                                    url: 'Controller/ActividadController.php',
+                                    type: 'POST',
+                                    data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
+                                    dataType: 'json',
+                                    success: function(response){
+                                        console.log(response);
+                                    }
+                                });
                             }
 
                             else{

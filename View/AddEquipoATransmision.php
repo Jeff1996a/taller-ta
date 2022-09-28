@@ -143,7 +143,26 @@
                                 success: function(response){
                                     $('#content').html(response);
                                 }
-                            });     
+                            }); 
+
+                            const nick = '<?=$_SESSION['nicknick']?>';
+                            const email = '<?=$_SESSION['email']?>';
+                            const actividad = "Agregó equipo transmisión: \n" +
+                                "Serie: " + serie + "\n" + 
+                                "CodTA: " + serieTa + "\n" + 
+                                "IdTrans: " + <?=$GLOBALS['id']?>;
+
+                            console.log(nick + " " + email + " " + actividad );
+
+                            $.ajax({
+                                url: 'Controller/ActividadController.php',
+                                type: 'POST',
+                                data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
+                                dataType: 'json',
+                                success: function(response){
+                                    console.log(response);
+                                }
+                            });   
                         }
 
                         else{

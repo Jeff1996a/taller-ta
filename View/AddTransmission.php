@@ -239,24 +239,24 @@ die;
                             });  
                             
                             const nick = '<?=$_SESSION['nicknick']?>';
-                                const email = '<?=$_SESSION['email']?>';
-                                const actividad = "Agregó transmisión: \n" +
-                                    "Nom: " + nombre + "\n" + 
-                                    "Ubi: " + ubicacion + "\n" + 
-                                    "FIni: " + inicio + "\n" +
-                                    "fFin: " + fin;
+                            const email = '<?=$_SESSION['email']?>';
+                            const actividad = "Agregó transmisión: \n" +
+                                "Nom: " + nombre + "\n" + 
+                                "Ubi: " + ubicacion + "\n" + 
+                                "FIni: " + inicio + "\n" +
+                                "fFin: " + fin;
 
-                                console.log(nick + " " + email + " " + actividad );
+                            console.log(nick + " " + email + " " + actividad );
 
-                                $.ajax({
-                                    url: 'Controller/ActividadController.php',
-                                    type: 'POST',
-                                    data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
-                                    dataType: 'json',
-                                    success: function(response){
-                                        console.log(response);
-                                    }
-                                });
+                            $.ajax({
+                                url: 'Controller/ActividadController.php',
+                                type: 'POST',
+                                data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
+                                dataType: 'json',
+                                success: function(response){
+                                    console.log(response);
+                                }
+                            });
                         }
 
                         else{
