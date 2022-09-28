@@ -203,7 +203,7 @@ die;
                                 const actividad = "Agregó accessorio equipo: \n" +
                                     "Cod.Equipo: " + id_equipo + "\n" + 
                                     "Serie: " + serie + "\n" + 
-                                    "CodTA: " + serieTA + "\n" + 
+                                    "CodTA: " + serieTA ; 
 
 
                                 console.log(nick + " " + email + " " + actividad );
