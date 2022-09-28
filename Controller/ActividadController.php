@@ -37,7 +37,7 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
         $action = $_POST['action'];
         $data = json_decode($_POST['data']);
 
-        if($action == 'addActividads'){
+        if($action == 'addActividad'){
             include_once ('../Model/ActividadModel.php');
 
             $actividad = new ActividadModel();
