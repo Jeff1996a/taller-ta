@@ -425,8 +425,7 @@ $equipment = $GLOBALS['equipment'];
                                     }
                                 });
 
-                                var actividad = "Actualizó equipo: \n" + 
-                                        " Cod.Equ: " + <?=$equipment->id_equipo?>;
+                                var actividad = "Actualizó equipo: " +  <?=$equipment->id_equipo?>;
 
                                 if(marca != marca2){
                                     actividad += " Marca: " + marca + " antes: " + marca2;
