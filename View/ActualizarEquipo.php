@@ -161,104 +161,37 @@ $equipment = $GLOBALS['equipment'];
                 <label for="cbEstado">Estado:</label>
                 <?php
                     echo '<select class="form-select btn-outline-success" aria-label="Default select example" id="cbEstado"   name="estado">';
-                    if($equipment->id_estado == "Almacenado"){
+                    if($equipment->id_estado == "Operativo: En uso"){
                         echo '<option>Seleccione un estado</option>';
-                        echo '<option value="1" selected="selected">Almacenado</option>';
-                        echo '<option value="2">Averiado</option>';
-                        echo '<option value="3">Óptimo</option>';
-                        echo '<option value="4">Operativos</option>';
+                        echo '<option value="1" selected="selected">Operativo: En uso</option>';
+                        echo '<option value="2">Operativo: Bodega</option>';
+                        echo '<option value="3">No operativo: De baja</option>';
+                        echo '<option value="4">No operativo: Repuesto</option>';
                     }
-                    elseif($equipment->id_estado == "Averiado"){
+                    elseif($equipment->id_estado == "Operativo: Bodega"){
                         echo '<option>Seleccione un estado</option>';
-                        echo '<option value="1">Almacenado</option>';
-                        echo '<option value="2" selected="selected">Averiado</option>';
-                        echo '<option value="3">Óptimo</option>';
-                        echo '<option value="4">Operativos</option>';
+                        echo '<option value="1">Operativo: En uso</option>';
+                        echo '<option value="2" selected="selected">Operativo: Bodega</option>';
+                        echo '<option value="3">No operativo: De baja</option>';
+                        echo '<option value="4">No operativo: Repuesto</option>';
                     }
-                    elseif($equipment->id_estado == "Óptimo"){
+                    elseif($equipment->id_estado == "No operativo: De baja"){
                         echo '<option>Seleccione un estado</option>';
-                        echo '<option value="1">Almacenado</option>';
-                        echo '<option value="2">Averiado</option>';
-                        echo '<option value="3" selected="selected">Óptimo</option>';
-                        echo '<option value="4">Operativos</option>';
+                        echo '<option value="1">Operativo: En uso</option>';
+                        echo '<option value="2" >Opertivo: Bodega</option>';
+                        echo '<option value="3" selected="selected">No operativo: De baja</option>';
+                        echo '<option value="4">No operativo: Repuesto</option>';
                     }
-                    elseif($equipment->id_estado == "Operativo"){
+                    elseif($equipment->id_estado == "No operativo: Repuesto"){
                         echo '<option>Seleccione un estado</option>';
-                        echo '<option value="1">Almacenado</option>';
-                        echo '<option value="2">Averiado</option>';
-                        echo '<option value="3">Óptimo</option>';
-                        echo '<option value="4" selected="selected">Operativos</option>';
+                        echo '<option value="1">Operativo: En uso</option>';
+                        echo '<option value="2" >Opertivo: Bodega</option>';
+                        echo '<option value="3">No operativo: De baja</option>';
+                        echo '<option value="4" selected="selected">No operativo: Repuesto</option>';
                     }
                     echo '</select>';
 
                 ?>
-            </div>
-
-            <div class="mb-2 col">
-                <label for="cbTipoEquipo">Tipo de Equipo:</label>
-                <?php 
-                    echo '<select class="form-select btn-outline-success" aria-label="Default select example" id="cbTipoEquipo" name="tipoEquipo">';
-                    if($equipment->id_tipo_equi == "Audio"){
-                        echo '<option>Seleccione una categoría</option>';
-                        echo '<option value="1" selected="selected">Audio</option>';
-                        echo '<option value="2">Cables</option>';
-                        echo '<option value="3">Edición</option>';
-                        echo '<option value="4">Electricidad</option>';
-                        echo '<option value="5">Red</option>';
-                        echo '<option value="6">Video</option>';
-                    }
-
-                    elseif($equipment->id_tipo_equi == "Cables"){
-                        echo '<option>Seleccione una categoría</option>';
-                        echo '<option value="1">Audio</option>';
-                        echo '<option value="2" selected="selected">Cables</option>';
-                        echo '<option value="3">Edición</option>';
-                        echo '<option value="4">Electricidad</option>';
-                        echo '<option value="5">Red</option>';
-                        echo '<option value="6">Video</option>';
-                    }
-
-                    elseif($equipment->id_tipo_equi == "Edición"){
-                        echo '<option>Seleccione una categoría</option>';
-                        echo '<option value="1">Audio</option>';
-                        echo '<option value="2" selected="selected">Cables</option>';
-                        echo '<option value="3">Edición</option>';
-                        echo '<option value="4">Electricidad</option>';
-                        echo '<option value="5">Red</option>';
-                        echo '<option value="6">Video</option>';
-                    }
-
-                    elseif($equipment->id_tipo_equi == "Electricidad"){
-                        echo '<option>Seleccione una categoría</option>';
-                        echo '<option value="1">Audio</option>';
-                        echo '<option value="2">Cables</option>';
-                        echo '<option value="3">Edición</option>';
-                        echo '<option value="4" selected="selected">Electricidad</option>';
-                        echo '<option value="5">Red</option>';
-                        echo '<option value="6">Video</option>';
-                    }
-
-                    elseif($equipment->id_tipo_equi == "Red"){
-                        echo '<option>Seleccione una categoría</option>';
-                        echo '<option value="1">Audio</option>';
-                        echo '<option value="2">Cables</option>';
-                        echo '<option value="3">Edición</option>';
-                        echo '<option value="4">Electricidad</option>';
-                        echo '<option value="5" selected="selected">Red</option>';
-                        echo '<option value="6">Video</option>';
-                    }
-
-                    elseif($equipment->id_tipo_equi == "Video"){
-                        echo '<option>Seleccione una categoría</option>';
-                        echo '<option value="1">Audio</option>';
-                        echo '<option value="2">Cables</option>';
-                        echo '<option value="3">Edición</option>';
-                        echo '<option value="4">Electricidad</option>';
-                        echo '<option value="5">Red</option>';
-                        echo '<option value="6" selected="selected">Video</option>';
-                    }
-                    echo '</select>';
-                ?>       
             </div>
         </div>
 
@@ -381,33 +314,35 @@ $equipment = $GLOBALS['equipment'];
             const fecha = $('#dpFechaInst').val();
             const proveedor = $('#txtProveedor').val();
             const estado = $('#cbEstado').val();
-            const tipoEquipo = $('#cbTipoEquipo').val();
+            const tipoEquipo = '<?=$GLOBALS['category']?>'
             const tecnico = $('#txtTecnico').val();
             const responsable = $('#txtResponsable').val();
             const departamento = $('#txtDepartamento').val();
             const observacion = $('#txtObservacion').val();
 
-            if(tipoEquipo == 1){
-                msg.category = 'audio';
+            var idTipo = 0;
+
+            if(tipoEquipo == 'audio'){
+                idTipo = 1;
             }
 
-            else if(tipoEquipo == 2){
-                msg.category = 'cables';
+            else if(tipoEquipo == 'cables'){
+                idTipo = 2 ;
             }
 
-            else if(tipoEquipo == 3){
-                msg.category = 'edicion';
+            else if(tipoEquipo == 'edición'){
+                idTipo = 3 ;
             }
 
-            else if(tipoEquipo == 4){
-                msg.category = 'electricidad';
+            else if(tipoEquipo == 'electricidad'){
+                idTipo = 4;
             }
 
-            else if(tipoEquipo == 5){
-                msg.category = 'red';
+            else if(tipoEquipo == 'red'){
+                idTipo = 5;
             }
-            else if(tipoEquipo == 6){
-                msg.category = 'video';
+            else if(tipoEquipo == 'video'6){
+                idTipo = 6;
             }
 
             console.log("Categoria:" + msg.category);
@@ -423,7 +358,7 @@ $equipment = $GLOBALS['equipment'];
             form_data.append('fechaInst', fecha);
             form_data.append('proveedor', proveedor);
             form_data.append('estado', estado);
-            form_data.append('tipoEquipo', tipoEquipo);
+            form_data.append('tipoEquipo', idTipo);
             form_data.append('tecnico', tecnico);
             form_data.append('responsable', responsable);
             form_data.append('departamento', departamento);
