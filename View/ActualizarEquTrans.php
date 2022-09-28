@@ -1,4 +1,9 @@
 <?php 
+session_start();
+if (!isset($_SESSION['usuario_sesion'])) {
+header('Location: index.php');
+die;
+}
 $equTrans = $GLOBALS['equTrans'];
 ?>
 <form method="post" action="" enctype="multipart/form-data" id="frmActualizarEquTrans">
@@ -44,6 +49,10 @@ $equTrans = $GLOBALS['equTrans'];
 
 <script type="text/javascript">
     $(document).ready(function(){
+
+        const serie2 = $('#txtSerie').val();
+        const serieTa2 = $('#txtCodTa').val();
+        const observacion2 = $('#txtObservacion').val();
 
         const msg = {
             id: ''
@@ -146,7 +155,36 @@ $equTrans = $GLOBALS['equTrans'];
                                 success: function(response){
                                     $('#content').html(response);
                                 }
-                            });     
+                            });   
+                            
+                            var actividad = "Actualizó equipo trans: " +  <?=$transmision->id_transmision?>;
+
+                            if(serie != serie2){
+                                actividad += " Serie: " + serie + " antes: " + serie2;
+                            }
+
+                            if(serieTa != serieTa2){
+                                actividad += " Serie: " + serie + " antes: " + serie2;
+                            }
+
+                            if(observacion != observacion2){
+                                actividad += " Obs: " + observacion + " antes: " + observacion2;
+                            }
+
+                            const nick = '<?=$_SESSION['nicknick']?>';
+                            const email = '<?=$_SESSION['email']?>';
+
+                            console.log(nick + " " + correo + " " + actividad );
+
+                            $.ajax({
+                                url: 'Controller/ActividadController.php',
+                                type: 'POST',
+                                data: {data: JSON.stringify({'usuario': nick, 'email':email, 'actividad':actividad}), action:'addActividad'},
+                                dataType: 'json',
+                                success: function(response){
+                                    console.log(response);
+                                }
+                            });
                         }
 
                         else{
