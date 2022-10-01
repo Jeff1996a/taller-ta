@@ -11,8 +11,8 @@ die;
             <div class="col-sm-10">
                 <h1><?=$GLOBALS['title']?></h1>
             </div>
-            <div class="col-sm-1 mt-2 text-end">
-            <h4 clas"text-end">Nuevo</h4>
+            <div class="col-sm-1 mt-2 text-right">
+            <h4 clas"text-right">Nuevo</h4>
             </div>
             <div class="col-sm-1" id="btnAddEquipment" role="button" data-toggle="tooltip" data-placement="bottom" title="Nuevo equipo">
                 
