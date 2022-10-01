@@ -8,10 +8,10 @@ die;
 <div class="container-fluid">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-11">
+            <div class="col-sm-10">
                 <h1><?=$GLOBALS['title']?></h1>
             </div>
-            <div class="col-sm-1" id="btnAddEquipment" role="button" data-toggle="tooltip" data-placement="bottom" title="Nuevo equipo">
+            <div class="col-sm-2" id="btnAddEquipment" role="button" data-toggle="tooltip" data-placement="bottom" title="Nuevo equipo">
                 <h3>Nuevo</h3>
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#ff9000" class="bi bi-plus-circle-fill float-end" viewBox="0 0 16 16">
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
