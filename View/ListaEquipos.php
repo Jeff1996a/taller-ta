@@ -12,7 +12,7 @@ die;
                 <h1><?=$GLOBALS['title']?></h1>
             </div>
             
-            <div class="col-sm-1" id="btnAddEquipment" role="button" data-toggle="tooltip" data-placement="bottom" title="Nuevo equipo">
+            <div class="col-sm-2" id="btnAddEquipment" role="button" data-toggle="tooltip" data-placement="bottom" title="Nuevo equipo">
                 <p class="fs-4 text">
                      Nuevo
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#ff9000" class="bi bi-plus-circle-fill float-end" viewBox="0 0 16 16">
