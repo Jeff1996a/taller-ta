@@ -88,6 +88,7 @@ class EquipmentModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
+                mysql_close(this->dbConn);
                 return $result;
             }
 
@@ -102,6 +103,8 @@ class EquipmentModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($this->equipment_list = mysqli_store_result($this->dbConn)) {
+
+                mysql_close(this->dbConn);
 
                 return $this->equipment_list;
             }
@@ -118,6 +121,8 @@ class EquipmentModel
 
             if ($result = mysqli_store_result($this->dbConn)) {
 
+                mysql_close(this->dbConn);
+
                 return $result;
             }
         }
@@ -132,6 +137,7 @@ class EquipmentModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
+                mysql_close(this->dbConn);
                 return $result;
             }
         }
@@ -145,6 +151,7 @@ class EquipmentModel
 
         while (mysqli_more_results($this->dbConn)) {
             if ($result = mysqli_store_result($this->dbConn)) {
+                mysql_close(this->dbConn);
                 return $result;
             }
         }
@@ -159,6 +166,7 @@ class EquipmentModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
+                mysql_close(this->dbConn);
                 return $result;
             }
         }
@@ -173,6 +181,7 @@ class EquipmentModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
+                mysql_close(this->dbConn);
                 return $result;
             }
         }
@@ -186,6 +195,7 @@ class EquipmentModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
+                mysql_close(this->dbConn);
                 return $result;
             }
         }
