@@ -307,9 +307,6 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
        }
 
        elseif($action == "eliminarAccesorio"){
-            include_once('../Model/EquipmentModel.php');
-
-            $equipment =  new EquipmentModel();
 
             $id = $data->{'idAccesorio'};
 
@@ -319,9 +316,7 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
 
         elseif($action == "eliminarHistorial"){
-            include_once('../Model/EquipmentModel.php');
 
-            $equipment =  new EquipmentModel();
 
             $id = $data->{'id'};
 
@@ -410,7 +405,7 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
 
         //Actualiza el registro de un equipo
-        if($_POST['action'] == 'actualizarEquipo' ){
+        else if($_POST['action'] == 'actualizarEquipo' ){
             $equipment->id_equipo = $_POST['id_equipo'];
             $equipment->marca = $_POST['marca'];
             $equipment->modelo = $_POST['modelo'];
@@ -488,11 +483,9 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
         elseif($_POST['action'] == 'addHistory'){
 
             include_once ('../Model/Historial.php');
-            include_once ('../Model/EquipmentModel.php');
 
             //Crear el objeto historial 
             $history = new Historial();
-            $equipment = new EquipmentModel();
 
             $history->tecnico = $_POST['tecnico'];
             $history->correo = $_POST['correo'];
