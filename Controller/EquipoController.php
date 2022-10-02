@@ -230,14 +230,14 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if(isset($_POST['action']) && isset($_POST['data'])){
 
+        include_once ('../Model/EquipmentModel.php');
+
         $action = $_POST['action'];
         $data = json_decode($_POST['data']);
 
+        $equipment = new EquipmentModel();
+
        if($action == "filter"){
-
-            include_once ('../Model/EquipmentModel.php');
-
-            $equipment = new EquipmentModel();
 
             $category = $data->{'category'};
 
@@ -298,10 +298,6 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
        }
 
        if($action == "eliminar"){
-
-            include_once('../Model/EquipmentModel.php');
-
-            $equipment =  new EquipmentModel();
 
             $id = $data->{'id'};
 
