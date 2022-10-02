@@ -57,6 +57,8 @@ class EquipmentModel
 
             if ($result= mysqli_store_result($this->dbConn)) {
 
+                mysql_close(this->dbConn);
+
                 return $result;
             }
         }
