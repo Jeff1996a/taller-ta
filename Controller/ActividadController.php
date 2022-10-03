@@ -1,4 +1,7 @@
 <?php
+include_once ('../Model/ActividadModel.php');
+
+$actividad = new ActividadModel();
 
 $action = '';
 $data = '';
@@ -38,9 +41,7 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
         $data = json_decode($_POST['data']);
 
         if($action == 'addActividad'){
-            include_once ('../Model/ActividadModel.php');
-
-            $actividad = new ActividadModel();
+            
 
             $actividad->usuario = $data->{'usuario'};
             $actividad->email = $data->{'email'};
