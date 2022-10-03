@@ -15,7 +15,7 @@ die;
         <h1><?=$GLOBALS['title']?></h1>
         <div class="text-right mt-2">
             <p>
-                <button type="button" class="btn btn-outline-primary btn-sm fs-5 float-end"  id="btnAddHistory" data-toggle="tooltip" data-placement="bottom" title="Nuevo equipo">
+                <button type="button" class="btn btn-outline-primary btn-sm fs-5 float-end"  id="btnAddHistory" data-toggle="tooltip" data-placement="bottom" title="Nuevo historial">
                     Nuevo
                     <a>
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-square-fill mb-1" viewBox="0 0 16 16">
