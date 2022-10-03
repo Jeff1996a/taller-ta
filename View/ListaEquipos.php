@@ -12,7 +12,7 @@ die;
                 <h1><?=$GLOBALS['title']?></h1>
             </div>
             
-            <div class="col-sm-2 text-right">
+            <div class="col-sm-2 text-right mt-2">
                 <p>
                     <button type="button" class="btn btn-outline-primary btn-sm fs-5 float-end"  id="btnAddEquipment" data-toggle="tooltip" data-placement="bottom" title="Nuevo equipo">
                         Nuevo
