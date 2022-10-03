@@ -23,7 +23,6 @@ class EquipmentModel
     public $action;
 
     private $db;
-    public $dbConn;
     public $equipment_list;
 
     function __construct(){
@@ -37,33 +36,33 @@ class EquipmentModel
 
     function CrearEquipo($obj){
 
-        $this-> dbConn =  $this->db->OpenConnection();
+        $dbConn =  $this->db->OpenConnection();
 
-        mysqli_query($this->dbConn ,"SET @Marca='".$obj->marca."'");
-        mysqli_query($this->dbConn ,"SET @Modelo='".$obj->modelo."'");
-        mysqli_query($this->dbConn ,"SET @Descripcion='".$obj->descripcion."'");
-        mysqli_query($this->dbConn ,"SET @SerieTa='".$obj->codigo_ta."'");
-        mysqli_query($this->dbConn ,"SET @Serie='".$obj->num_serie."'");
-        mysqli_query($this->dbConn ,"SET @Fecha='".$obj->fecha_inst."'");
-        mysqli_query($this->dbConn ,"SET @Proveedor='".$obj->proveedor."'");
-        mysqli_query($this->dbConn ,"SET @Id_estado='".$obj->id_estado."'");
-        mysqli_query($this->dbConn ,"SET @Id_tipo_equi='".$obj->id_tipo_equi."'");
-        mysqli_query($this->dbConn ,"SET @Tecnico='".$obj->tecnico."'");
-        mysqli_query($this->dbConn ,"SET @Responsable='".$obj->responsable."'");
-        mysqli_query($this->dbConn ,"SET @Departamento='".$obj->departamento."'");
-        mysqli_query($this->dbConn ,"SET @Disponibilidad='".$obj->disponibilidad."'");
-        mysqli_query($this->dbConn ,"SET @Observacion='".$obj->observacion."'");
+        mysqli_query($dbConn ,"SET @Marca='".$obj->marca."'");
+        mysqli_query($dbConn ,"SET @Modelo='".$obj->modelo."'");
+        mysqli_query($dbConn ,"SET @Descripcion='".$obj->descripcion."'");
+        mysqli_query($dbConn ,"SET @SerieTa='".$obj->codigo_ta."'");
+        mysqli_query($dbConn ,"SET @Serie='".$obj->num_serie."'");
+        mysqli_query($dbConn ,"SET @Fecha='".$obj->fecha_inst."'");
+        mysqli_query($dbConn ,"SET @Proveedor='".$obj->proveedor."'");
+        mysqli_query($dbConn ,"SET @Id_estado='".$obj->id_estado."'");
+        mysqli_query($dbConn ,"SET @Id_tipo_equi='".$obj->id_tipo_equi."'");
+        mysqli_query($dbConn ,"SET @Tecnico='".$obj->tecnico."'");
+        mysqli_query($dbConn ,"SET @Responsable='".$obj->responsable."'");
+        mysqli_query($dbConn ,"SET @Departamento='".$obj->departamento."'");
+        mysqli_query($dbConn ,"SET @Disponibilidad='".$obj->disponibilidad."'");
+        mysqli_query($dbConn ,"SET @Observacion='".$obj->observacion."'");
 
 
-        mysqli_multi_query ($this->dbConn, "CALL uspCrearEquipo(@Marca, @Modelo, @Descripcion, @SerieTa, @Serie,
+        mysqli_multi_query ($dbConn, "CALL uspCrearEquipo(@Marca, @Modelo, @Descripcion, @SerieTa, @Serie,
                             @Fecha,@Proveedor,@Id_estado,@Id_tipo_equi,@Tecnico, @Responsable, @Departamento, @Disponibilidad, @Observacion)")
-            OR DIE (mysqli_error($this->dbConn));
+            OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result= mysqli_store_result($this->dbConn)) {
+            if ($result= mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -72,17 +71,17 @@ class EquipmentModel
 
     function GuardarArchivo($path, $id){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn,"SET @Path='".$path."'" );
-        mysqli_query($this->dbConn,"SET @Id_equipo='".$id."'" );
-        mysqli_multi_query ($this->dbConn, "CALL uspInsertarAdjEquipo(@Path, @Id_equipo)")
-        OR DIE (mysqli_error($this->dbConn));
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn,"SET @Path='".$path."'" );
+        mysqli_query($dbConn,"SET @Id_equipo='".$id."'" );
+        mysqli_multi_query ($dbConn, "CALL uspInsertarAdjEquipo(@Path, @Id_equipo)")
+        OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result= mysqli_store_result($this->dbConn)) {
+            if ($result= mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -93,13 +92,13 @@ class EquipmentModel
 
     function GetEquipmentList(){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_multi_query ($this->dbConn, "CALL uspVistaListaEquipos") OR DIE (mysqli_error($this->dbConn));
-        while (mysqli_more_results($this->dbConn)) {
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_multi_query ($dbConn, "CALL uspVistaListaEquipos") OR DIE (mysqli_error($this->dbConn));
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
          
                 return $result;
             }
@@ -109,17 +108,17 @@ class EquipmentModel
 
     function GetEquimentByType($category){
 
-        $this-> dbConn =  $this->db->OpenConnection();
+        $dbConn =  $this->db->OpenConnection();
 
-        mysqli_query($this->dbConn ,"SET @type='".$category."'");
+        mysqli_query($dbConn ,"SET @type='".$category."'");
 
-        mysqli_multi_query ($this->dbConn, "CALL uspGetEquipmentByType(@type)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query ($dbConn, "CALL uspGetEquipmentByType(@type)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($this->equipment_list = mysqli_store_result($this->dbConn)) {
+            if ($this->equipment_list = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $this->equipment_list;
             }
@@ -128,17 +127,17 @@ class EquipmentModel
 
     function GetEquipmentByDesc($desc, $type){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn, "SET @descripcion='".$desc."'");
-        mysqli_query($this->dbConn, "SET @type='".$type."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn, "SET @descripcion='".$desc."'");
+        mysqli_query($dbConn, "SET @type='".$type."'");
 
-        mysqli_multi_query($this->dbConn, "CALL uspFiltrarPorEquipo(@descripcion, @type)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query($dbConn, "CALL uspFiltrarPorEquipo(@descripcion, @type)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -147,17 +146,17 @@ class EquipmentModel
 
     function GetEquipmentByMarca($marca, $type){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn, "SET @marca='".$marca."'");
-        mysqli_query($this->dbConn, "SET @type='".$type."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn, "SET @marca='".$marca."'");
+        mysqli_query($dbConn, "SET @type='".$type."'");
 
-        mysqli_multi_query($this->dbConn, "CALL uspFiltrarPorMarca(@marca, @type)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query($dbConn, "CALL uspFiltrarPorMarca(@marca, @type)") OR DIE (mysqli_error($this->dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -166,16 +165,16 @@ class EquipmentModel
 
     function GetEquipmentBySerie($serie, $type){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn, "SET @serie='".$serie."'");
-        mysqli_query($this->dbConn, "SET @type='".$type."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn, "SET @serie='".$serie."'");
+        mysqli_query($dbConn, "SET @type='".$type."'");
 
-        mysqli_multi_query($this->dbConn, "CALL uspFiltrarPorSerie(@serie, @type)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query($dbConn, "CALL uspFiltrarPorSerie(@serie, @type)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
-            if ($result = mysqli_store_result($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -183,17 +182,17 @@ class EquipmentModel
     }
 
     function GetEquipmentByDep($dep, $type){
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn, "SET @departamento='".$dep."'");
-        mysqli_query($this->dbConn, "SET @type='".$type."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn, "SET @departamento='".$dep."'");
+        mysqli_query($dbConn, "SET @type='".$type."'");
 
-        mysqli_multi_query($this->dbConn, "CALL uspFiltrarPorDepartamento(@departamento, @type)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query($dbConn, "CALL uspFiltrarPorDepartamento(@departamento, @type)") OR DIE (mysqli_error($this->dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -202,17 +201,17 @@ class EquipmentModel
 
     function GetEquipmentByEst($state, $type){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn, "SET @estado='".$state."'");
-        mysqli_query($this->dbConn, "SET @type='".$type."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn, "SET @estado='".$state."'");
+        mysqli_query($dbConn, "SET @type='".$type."'");
 
-        mysqli_multi_query($this->dbConn, "CALL uspFiltrarPorEstado(@estado, @type)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query($dbConn, "CALL uspFiltrarPorEstado(@estado, @type)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -221,16 +220,16 @@ class EquipmentModel
 
     function GetEquipmentHistory($id){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn, "SET @id='".$id."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn, "SET @id='".$id."'");
 
-        mysqli_multi_query($this->dbConn, "CALL uspEquipmentHistory(@id)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query($dbConn, "CALL uspEquipmentHistory(@id)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
                 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
 
@@ -240,16 +239,16 @@ class EquipmentModel
 
     function GetEquipmentAccesories($id){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn, "SET @id='".$id."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn, "SET @id='".$id."'");
 
-        mysqli_multi_query($this->dbConn, "CALL uspGetAccesoriesList(@id)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query($dbConn, "CALL uspGetAccesoriesList(@id)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -259,27 +258,27 @@ class EquipmentModel
     //Crear un nuevo registro para el historial de mantenimiento de cada equipo
     function AddHistoryRecord($obj){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn ,"SET @id='".$obj->id_equipo."'");
-        mysqli_query($this->dbConn ,"SET @ult_mant='".$obj->ultMant."'");
-        mysqli_query($this->dbConn ,"SET @ingreso='".$obj->ingreso."'");
-        mysqli_query($this->dbConn ,"SET @prob='".$obj->problema."'");
-        mysqli_query($this->dbConn ,"SET @sol='".$obj->solucion."'");
-        mysqli_query($this->dbConn ,"SET @obs='".$obj->observacion."'");
-        mysqli_query($this->dbConn ,"SET @rep='".$obj->repuesto."'");
-        mysqli_query($this->dbConn ,"SET @disp='".$obj->disponibilidad."'");
-        mysqli_query($this->dbConn ,"SET @tec='".$obj->tecnico."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn ,"SET @id='".$obj->id_equipo."'");
+        mysqli_query($dbConn ,"SET @ult_mant='".$obj->ultMant."'");
+        mysqli_query($dbConn ,"SET @ingreso='".$obj->ingreso."'");
+        mysqli_query($dbConn ,"SET @prob='".$obj->problema."'");
+        mysqli_query($dbConn ,"SET @sol='".$obj->solucion."'");
+        mysqli_query($dbConn ,"SET @obs='".$obj->observacion."'");
+        mysqli_query($dbConn ,"SET @rep='".$obj->repuesto."'");
+        mysqli_query($dbConn ,"SET @disp='".$obj->disponibilidad."'");
+        mysqli_query($dbConn ,"SET @tec='".$obj->tecnico."'");
     
-        mysqli_query($this->dbConn ,"SET @correo='".$obj->correo."'");
+        mysqli_query($dbConn ,"SET @correo='".$obj->correo."'");
 
 
-        mysqli_multi_query ($this->dbConn, "CALL uspCreateHistoryRecord(@id,@ult_mant,@ingreso,@prob,@sol,@obs,@rep,@disp,@tec,@correo)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query ($dbConn, "CALL uspCreateHistoryRecord(@id,@ult_mant,@ingreso,@prob,@sol,@obs,@rep,@disp,@tec,@correo)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -289,20 +288,20 @@ class EquipmentModel
     //Crear un nuevo registro para el historial de mantenimiento de cada equipo
     function AddAccesorio($obj){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn ,"SET @Descripcion='".$obj->descripcion."'");
-        mysqli_query($this->dbConn ,"SET @Disponibilidad='".$obj->disponibilidad."'");
-        mysqli_query($this->dbConn ,"SET @Num_serie='".$obj->serie."'");
-        mysqli_query($this->dbConn ,"SET @Num_serie_ta='".$obj->serie_ta."'");
-        mysqli_query($this->dbConn ,"SET @IdEqu='".$obj->id_equipo."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn ,"SET @Descripcion='".$obj->descripcion."'");
+        mysqli_query($dbConn ,"SET @Disponibilidad='".$obj->disponibilidad."'");
+        mysqli_query($dbConn ,"SET @Num_serie='".$obj->serie."'");
+        mysqli_query($dbConn ,"SET @Num_serie_ta='".$obj->serie_ta."'");
+        mysqli_query($dbConn ,"SET @IdEqu='".$obj->id_equipo."'");
 
-        mysqli_multi_query ($this->dbConn, "CALL uspAgregarAccesorios(@Descripcion,@Disponibilidad,@Num_serie,@Num_serie_ta,@IdEqu)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query ($dbConn, "CALL uspAgregarAccesorios(@Descripcion,@Disponibilidad,@Num_serie,@Num_serie_ta,@IdEqu)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -311,16 +310,16 @@ class EquipmentModel
 
     function ObtenerEquipo($id){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn ,"SET @id='".$id."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn ,"SET @id='".$id."'");
 
-        mysqli_multi_query ($this->dbConn, "CALL uspObtenerEquipo(@id)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query ($dbConn, "CALL uspObtenerEquipo(@id)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -329,32 +328,32 @@ class EquipmentModel
 
     function ActualizarEquipo($obj){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn ,"SET @Id='".$obj->id_equipo."'");
-        mysqli_query($this->dbConn ,"SET @Marca='".$obj->marca."'");
-        mysqli_query($this->dbConn ,"SET @Modelo='".$obj->modelo."'");
-        mysqli_query($this->dbConn ,"SET @Descr='".$obj->descripcion."'");
-        mysqli_query($this->dbConn ,"SET @NumSerieTa='".$obj->codigo_ta."'");
-        mysqli_query($this->dbConn ,"SET @NumSerie='".$obj->num_serie."'");
-        mysqli_query($this->dbConn ,"SET @FechaInstalacion='".$obj->fecha_inst."'");
-        mysqli_query($this->dbConn ,"SET @Prov='".$obj->proveedor."'");
-        mysqli_query($this->dbConn ,"SET @IdEstado='".$obj->id_estado."'");
-        mysqli_query($this->dbConn ,"SET @IdTipoEqui='".$obj->id_tipo_equi."'");
-        mysqli_query($this->dbConn ,"SET @Tec='".$obj->tecnico."'");
-        mysqli_query($this->dbConn ,"SET @Resp='".$obj->responsable."'");
-        mysqli_query($this->dbConn ,"SET @Dep='".$obj->departamento."'");
-        mysqli_query($this->dbConn ,"SET @Obs='".$obj->observacion."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn ,"SET @Id='".$obj->id_equipo."'");
+        mysqli_query($dbConn ,"SET @Marca='".$obj->marca."'");
+        mysqli_query($dbConn ,"SET @Modelo='".$obj->modelo."'");
+        mysqli_query($dbConn ,"SET @Descr='".$obj->descripcion."'");
+        mysqli_query($dbConn ,"SET @NumSerieTa='".$obj->codigo_ta."'");
+        mysqli_query($dbConn ,"SET @NumSerie='".$obj->num_serie."'");
+        mysqli_query($dbConn ,"SET @FechaInstalacion='".$obj->fecha_inst."'");
+        mysqli_query($dbConn ,"SET @Prov='".$obj->proveedor."'");
+        mysqli_query($dbConn ,"SET @IdEstado='".$obj->id_estado."'");
+        mysqli_query($dbConn ,"SET @IdTipoEqui='".$obj->id_tipo_equi."'");
+        mysqli_query($dbConn ,"SET @Tec='".$obj->tecnico."'");
+        mysqli_query($dbConn ,"SET @Resp='".$obj->responsable."'");
+        mysqli_query($dbConn ,"SET @Dep='".$obj->departamento."'");
+        mysqli_query($dbConn ,"SET @Obs='".$obj->observacion."'");
 
 
-        mysqli_multi_query ($this->dbConn, "CALL uspActualizarEquipo(@Id, @Marca, @Modelo, @Descr, @NumSerieTa, @NumSerie,
+        mysqli_multi_query ($dbConn, "CALL uspActualizarEquipo(@Id, @Marca, @Modelo, @Descr, @NumSerieTa, @NumSerie,
                             @Obs, @FechaInstalacion,@Prov,@IdEstado,@IdTipoEqui, @Tec, @Resp, @Dep)")
-            OR DIE (mysqli_error($this->dbConn));
+            OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result= mysqli_store_result($this->dbConn)) {
+            if ($result= mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -363,16 +362,16 @@ class EquipmentModel
 
     function EliminarEquipo($id){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn ,"SET @id='".$id."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn ,"SET @id='".$id."'");
 
-        mysqli_multi_query ($this->dbConn, "CALL uspEliminarEquipo(@id)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query ($dbConn, "CALL uspEliminarEquipo(@id)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -382,16 +381,16 @@ class EquipmentModel
     //Obtener historial
     function ObtenerHistorial($id){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn ,"SET @Id='".$id."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn ,"SET @Id='".$id."'");
 
-        mysqli_multi_query ($this->dbConn, "CALL uspObtenerHistorial(@Id)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query ($dbConn, "CALL uspObtenerHistorial(@Id)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -399,28 +398,28 @@ class EquipmentModel
     }
 
     function ActualizarHistorial($obj){
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn ,"SET @Id='".$obj->id_historial."'");
-        mysqli_query($this->dbConn ,"SET @Tec='".$obj->tecnico."'");
-        mysqli_query($this->dbConn ,"SET @Correo='".$obj->correo."'");
-        mysqli_query($this->dbConn ,"SET @Ingreso='".$obj->ingreso."'");
-        mysqli_query($this->dbConn ,"SET @Mant='".$obj->ultMant."'");
-        mysqli_query($this->dbConn ,"SET @Prob='".$obj->problema."'");
-        mysqli_query($this->dbConn ,"SET @Sol='".$obj->solucion."'");
-        mysqli_query($this->dbConn ,"SET @Obs='".$obj->observacion."'");
-        mysqli_query($this->dbConn ,"SET @Disp='".$obj->disponibilidad."'");
-        mysqli_query($this->dbConn ,"SET @Rep='".$obj->repuesto."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn ,"SET @Id='".$obj->id_historial."'");
+        mysqli_query($dbConn ,"SET @Tec='".$obj->tecnico."'");
+        mysqli_query($dbConn ,"SET @Correo='".$obj->correo."'");
+        mysqli_query($dbConn ,"SET @Ingreso='".$obj->ingreso."'");
+        mysqli_query($dbConn ,"SET @Mant='".$obj->ultMant."'");
+        mysqli_query($dbConn ,"SET @Prob='".$obj->problema."'");
+        mysqli_query($dbConn ,"SET @Sol='".$obj->solucion."'");
+        mysqli_query($dbConn ,"SET @Obs='".$obj->observacion."'");
+        mysqli_query($dbConn ,"SET @Disp='".$obj->disponibilidad."'");
+        mysqli_query($dbConn ,"SET @Rep='".$obj->repuesto."'");
 
 
-        mysqli_multi_query ($this->dbConn, "CALL uspActualizarHistorial(@Id, @Tec, @Correo, @Ingreso, @Mant,
+        mysqli_multi_query ($dbConn, "CALL uspActualizarHistorial(@Id, @Tec, @Correo, @Ingreso, @Mant,
                             @Prob, @Sol, @Obs, @Disp, @Rep)")
-            OR DIE (mysqli_error($this->dbConn));
+            OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result= mysqli_store_result($this->dbConn)) {
+            if ($result= mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -429,16 +428,16 @@ class EquipmentModel
 
     function EliminarHistorial($id){
 
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn ,"SET @id='".$id."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn ,"SET @id='".$id."'");
 
-        mysqli_multi_query ($this->dbConn, "CALL uspEliminarHistorial(@id)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query ($dbConn, "CALL uspEliminarHistorial(@id)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -446,16 +445,16 @@ class EquipmentModel
     }
 
     function ObtenerAccesorio($id){
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn ,"SET @id='".$id."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn ,"SET @id='".$id."'");
 
-        mysqli_multi_query ($this->dbConn, "CALL uspObtenerAccesorio(@id)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query ($dbConn, "CALL uspObtenerAccesorio(@id)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -463,23 +462,23 @@ class EquipmentModel
     }
 
     function ActualizarAccesorio($obj){
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn ,"SET @Id='".$obj->id_accesorio."'");
-        mysqli_query($this->dbConn ,"SET @Descr='".$obj->descripcion."'");
-        mysqli_query($this->dbConn ,"SET @Disp='".$obj->disponibilidad."'");
-        mysqli_query($this->dbConn ,"SET @IdEquipo='".$obj->id_equipo."'");
-        mysqli_query($this->dbConn ,"SET @NumSerie='".$obj->serie."'");
-        mysqli_query($this->dbConn ,"SET @NumSerieTa='".$obj->serie_ta."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn ,"SET @Id='".$obj->id_accesorio."'");
+        mysqli_query($dbConn ,"SET @Descr='".$obj->descripcion."'");
+        mysqli_query($dbConn ,"SET @Disp='".$obj->disponibilidad."'");
+        mysqli_query($dbConn ,"SET @IdEquipo='".$obj->id_equipo."'");
+        mysqli_query($dbConn ,"SET @NumSerie='".$obj->serie."'");
+        mysqli_query($dbConn ,"SET @NumSerieTa='".$obj->serie_ta."'");
 
-        mysqli_multi_query ($this->dbConn, "CALL uspActualizarAccesorio(@Id, @Descr, @Disp, @IdEquipo, @NumSerie,
+        mysqli_multi_query ($dbConn, "CALL uspActualizarAccesorio(@Id, @Descr, @Disp, @IdEquipo, @NumSerie,
                             @NumSerieTa)")
-            OR DIE (mysqli_error($this->dbConn));
+            OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result= mysqli_store_result($this->dbConn)) {
+            if ($result= mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }
@@ -487,16 +486,16 @@ class EquipmentModel
     }
 
     function EliminarAccesorio($id){
-        $this-> dbConn =  $this->db->OpenConnection();
-        mysqli_query($this->dbConn ,"SET @id='".$id."'");
+        $dbConn =  $this->db->OpenConnection();
+        mysqli_query($dbConn ,"SET @id='".$id."'");
 
-        mysqli_multi_query ($this->dbConn, "CALL uspEliminarAccesorio(@id)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query ($dbConn, "CALL uspEliminarAccesorio(@id)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }

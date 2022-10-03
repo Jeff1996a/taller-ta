@@ -220,12 +220,10 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if(isset($_POST['action']) && isset($_POST['data'])){
 
-        include_once ('../Model/EquipmentModel.php');
 
         $action = $_POST['action'];
         $data = json_decode($_POST['data']);
 
-        $equipment = new EquipmentModel();
 
        if($action == "filter"){
 
@@ -286,7 +284,7 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
             }
             include_once ("../View/ListaEquipos.php");
 
-            mysqli_close($equipment->dbConn);
+
        }
 
        if($action == "eliminar"){
@@ -297,7 +295,7 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $equipment->EliminarEquipo($id);
 
-            mysqli_close($equipment->dbConn);
+
        }
 
        elseif($action == "eliminarAccesorio"){
@@ -320,7 +318,6 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $equipment->EliminarHistorial($id); 
             
-            mysqli_close($equipment->dbConn);
         }
 
     }
@@ -397,7 +394,6 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $equipment->result = $row["resultado"];
             }
 
-            mysqli_close($equipment->dbConn);
 
             echo json_encode($equipment);
 
@@ -474,7 +470,6 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $equipment->result = $row["resultado"];
             }
 
-            mysqli_close($equipment->dbConn);
 
             echo json_encode($equipment);
 
@@ -551,8 +546,6 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $history->result = $row["resultado"];
             }
 
-            mysqli_close($equipment->dbConn);
-
             echo json_encode($history);
 
             die;
@@ -616,7 +609,6 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
                     }
                 }
 
-                mysqli_close($equipment->dbConn);
 
                 echo json_encode($equipment);
                 die;
@@ -628,8 +620,6 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
    
                 $equipment->result = $row["resultado"];
             }
-
-            mysqli_close($equipment->dbConn);
 
             echo json_encode($equipment);
 
@@ -698,8 +688,6 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
    
                 $equipment->result = $row["resultado"];
             }
-
-            mysqli_close($equipment->dbConn);
 
             echo json_encode($equipment);
 
@@ -772,7 +760,6 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $accesorio->result = $row["resultado"];
             }
 
-            mysqli_close($equipment->dbConn);
 
             echo json_encode($accesorio);
 
