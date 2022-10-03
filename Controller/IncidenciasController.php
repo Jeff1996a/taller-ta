@@ -1,4 +1,8 @@
 <?php
+include_once ('../Model/IncidenciasModel.php');
+
+$incidencias = new IncidenciasModel();
+
 $action = '';
 
 $data = '';
@@ -33,10 +37,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
         elseif($action == "update"){
 
-            include_once('../Model/IncidenciasModel.php');
-
-            $incidencia =  new IncidenciasModel();
-
             $id = $data->{'id'};
 
             $result = $incidencia->ObtenerIncidencia($id);
@@ -70,10 +70,6 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if($action == "eliminar"){
 
-            include_once("../Model/IncidenciasModel.php");
-
-            $incidencia =  new IncidenciasModel();
-
             $id = $data->{'id'};
 
             $incidencia->EliminarIncidencia($id);
@@ -83,10 +79,6 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     elseif(isset($_POST)){
-
-        include_once ('../Model/IncidenciasModel.php');
-
-        $incidencia = new IncidenciasModel();
 
         if($_POST['action'] == 'addIncidencia'){
             $incidencia->nombre = $_POST['nombre'];
