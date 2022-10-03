@@ -15,3 +15,5 @@
  	* Constantes de nombres de archivos
  	*/
 	define('PAGINA_ERROR', 'error_page.php');
+
+	
