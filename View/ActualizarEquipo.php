@@ -21,7 +21,7 @@ $equipment = $GLOBALS['equipment'];
                 </div>
               
                 
-                <div class="col-md-3 d-flex ">
+                <div class="col-md-3 d-flex text-end">
                     <div>
                         <a id="btnHistorial" role="button" class="text-success" data-toggle="tooltip" data-placement="bottom" title="Historial de mantenimiento">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-calendar-week float-end" viewBox="0 0 16 16">
