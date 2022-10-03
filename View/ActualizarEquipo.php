@@ -11,7 +11,7 @@ $equipment = $GLOBALS['equipment'];
     <div class="container-fluid">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-10 d-flex">
+                <div class="col-md-9 d-flex">
                     <div id="btnRegresar" role="button" data-toggle="tooltip" data-placement="bottom" title="Regresar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#fa983a " class="bi bi-arrow-left-circle-fill mt-2" viewBox="0 0 16 16">
                             <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
@@ -21,7 +21,7 @@ $equipment = $GLOBALS['equipment'];
                 </div>
               
                 
-                <div class="col-md-2 d-flex text-right">
+                <div class="col-md-3 d-flex text-right">
                     <p class="fs-5">
                         Historial
                         <a id="btnHistorial" role="button" class="text-success text-end" data-toggle="tooltip" data-placement="bottom" title="Historial de mantenimiento">
