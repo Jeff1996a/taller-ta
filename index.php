@@ -71,7 +71,7 @@
         session_start();
         include 'config.php';
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            @ $link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE_NAME);
+            @$link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE_NAME);
             if (!$link) {
                 header('Location: ' . PAGINA_ERROR);
                 die;
