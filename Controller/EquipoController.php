@@ -67,7 +67,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
             include_once ("../View/ListaEquipos.php");
 
-            mysqli_close($equipment->dbConn);
         }
 
         elseif ($action == 'viewAddEquipment'){
@@ -92,7 +91,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
             include_once ('../View/Historial_mantenimiento.php');
 
-            mysqli_close($equipment->dbConn);
             
         }
 
@@ -119,7 +117,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
             include_once "../View/AccesoriosEquipo.php";
 
-            mysqli_close($equipment->dbConn);
         }
 
         elseif($action == "update"){
@@ -149,7 +146,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
             include_once ('../View/ActualizarEquipo.php');
 
-            mysqli_close($equipment->dbConn);
         }
 
         elseif($action == "updateHistory"){
@@ -180,7 +176,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
             include_once ('../View/ActualizarHistorial.php');
 
-            mysqli_close($equipment->dbConn);
         }
         elseif($action == "updateAccesorio"){
 
@@ -206,7 +201,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
             include_once ('../View/ActualizarAccesorio.php');
 
-            mysqli_close($equipment->dbConn);
         }
 
         elseif($action == 'viewAddAccesories'){
@@ -219,7 +213,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         }
     }
 
-    mysqli_close($equipment->dbConn);
 }
 
 ////MÉTODOS POST/////////
@@ -789,7 +782,6 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
         
     }
 
-    mysqli_close($equipment->dbConn);
 }
 
 //Funcion para validar los datos ingresados al filtro
