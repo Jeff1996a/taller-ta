@@ -61,8 +61,8 @@ die;
                     <option selected>Seleccione un estado</option>
                     <option value="1">Operativo: En uso</option>
                     <option value="2">Operativo: Bodega</option>
-                    <option value="3">No operativo: </option>
-                    <option value="4">Operativo</option>
+                    <option value="3">No operativo: De baja </option>
+                    <option value="4">No operativo: Repuesto</option>
                 </select>
             </div>
 
