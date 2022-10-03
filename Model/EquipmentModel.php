@@ -23,8 +23,11 @@ class EquipmentModel
     public $action;
 
     public $dbConn;
+    public $equipment_list;
 
     function __construct(){
+
+        $this->equipment_list = array();
 
         $this-> dbConn =  mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE_NAME);
 
@@ -88,6 +91,8 @@ class EquipmentModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
+
+                mysqli_close($this->dbConn);
          
                 return $result;
             }
@@ -103,6 +108,8 @@ class EquipmentModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($this->equipment_list = mysqli_store_result($this->dbConn)) {
+
+                mysqli_close($this->dbConn);
 
                 return $this->equipment_list;
             }
