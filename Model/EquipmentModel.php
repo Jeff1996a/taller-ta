@@ -32,8 +32,6 @@ class EquipmentModel
 
         $this->db = new DbConnection();
         
-
-        mysqli_set_charset($this->dbConn, DB_CHARSET);
     }
 
 
@@ -112,7 +110,7 @@ class EquipmentModel
     function GetEquimentByType($category){
 
         $this-> dbConn =  $this->db->OpenConnection();
-        
+
         mysqli_query($this->dbConn ,"SET @type='".$category."'");
 
         mysqli_multi_query ($this->dbConn, "CALL uspGetEquipmentByType(@type)") OR DIE (mysqli_error($this->dbConn));
