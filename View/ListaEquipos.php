@@ -59,9 +59,9 @@ die;
                 <label for="cbEstado">Estado:</label>
                 <select id="cbEstado" class="form-select btn-outline-success" aria-label="Default select example" >
                     <option selected>Seleccione un estado</option>
-                    <option value="1">Almacenado</option>
-                    <option value="2">Averiado</option>
-                    <option value="3">Óptimo</option>
+                    <option value="1">Operativo: En uso</option>
+                    <option value="2">Operativo: Bodega</option>
+                    <option value="3">No operativo: </option>
                     <option value="4">Operativo</option>
                 </select>
             </div>

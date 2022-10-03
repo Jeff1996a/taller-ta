@@ -311,6 +311,7 @@ class EquipmentModel
     function ObtenerEquipo($id){
 
         $dbConn =  $this->db->OpenConnection();
+
         mysqli_query($dbConn ,"SET @id='".$id."'");
 
         mysqli_multi_query ($dbConn, "CALL uspObtenerEquipo(@id)") OR DIE (mysqli_error($dbConn));
@@ -324,6 +325,8 @@ class EquipmentModel
                 return $result;
             }
         }
+
+        mysqli_close($dbConn);
     }
 
     function ActualizarEquipo($obj){
