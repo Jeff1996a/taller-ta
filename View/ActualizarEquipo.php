@@ -234,7 +234,7 @@ $equipment = $GLOBALS['equipment'];
         </div>
 
         <div class="col-auto">
-            <button id="btnActualizarEquipos" type="submit" class="btn btn-outline-success" style="margin-top: 25px; float: right; margin-bottom:25px;" >Guardar</button>
+            <button id="btnActualizarEquipos" type="submit" class="btn btn-outline-success" style="margin-top: 25px; float: right; margin-bottom:25px;" >Actualizar registro</button>
         </div>
     </div>
 </form>
