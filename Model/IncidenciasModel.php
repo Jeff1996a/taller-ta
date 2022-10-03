@@ -30,6 +30,8 @@ class IncidenciasModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
+
+                mysqli_close($this->dbConn);
                 return $result;
             }
         }
@@ -52,6 +54,8 @@ class IncidenciasModel
 
             if ($result = mysqli_store_result($this->dbConn)) {
 
+                mysqli_close($this->dbConn);
+
                 return $result;
             }
         }
@@ -66,6 +70,8 @@ class IncidenciasModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
+
+                mysqli_close($this->dbConn);
 
                 return $result;
             }
@@ -90,6 +96,8 @@ class IncidenciasModel
 
             if ($result = mysqli_store_result($this->dbConn)) {
 
+                mysqli_close($this->dbConn);
+
                 return $result;
             }
         }
@@ -105,6 +113,8 @@ class IncidenciasModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
+
+                mysqli_close($this->dbConn);
 
                 return $result;
             }

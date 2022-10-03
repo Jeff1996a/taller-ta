@@ -22,6 +22,8 @@ class CursosModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
+
+                mysqli_close($this->dbConn);
                 return $result;
             }
         }
@@ -39,6 +41,8 @@ class CursosModel
 
             if ($result = mysqli_store_result($this->dbConn)) {
 
+                mysqli_close($this->dbConn);
+
                 return $result;
             }
         }
@@ -53,6 +57,8 @@ class CursosModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
+
+                mysqli_close($this->dbConn);
 
                 return $result;
             }
@@ -72,6 +78,8 @@ class CursosModel
 
             if ($result = mysqli_store_result($this->dbConn)) {
 
+                mysqli_close($this->dbConn);
+
                 return $result;
             }
         }
@@ -87,6 +95,8 @@ class CursosModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
+
+                mysqli_close($this->dbConn);
 
                 return $result;
             }
