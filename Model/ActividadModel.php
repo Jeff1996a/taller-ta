@@ -20,7 +20,7 @@ class ActividadModel
     //Obtener la lista de actividades realizadas por los usuarios
     function LeerActividades(){
 
-        $this->db = new DbConnection();
+        $dbConn =  $this->db->OpenConnection();
         mysqli_multi_query ($dbConn, "CALL uspLeerActividades") OR DIE (mysqli_error($dbConn));
         while (mysqli_more_results($dbConn)) {
 
@@ -35,7 +35,7 @@ class ActividadModel
     //Crear una actividad
     function CrearActividad($obj){
 
-        $this->db = new DbConnection();
+        $dbConn =  $this->db->OpenConnection();
         mysqli_query($dbConn ,"SET @nick='".$obj->usuario."'");
         mysqli_query($dbConn ,"SET @correo='".$obj->email."'");
         mysqli_query($dbConn ,"SET @acti='".$obj->actividad."'");
