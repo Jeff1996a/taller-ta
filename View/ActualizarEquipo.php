@@ -21,7 +21,7 @@ $equipment = $GLOBALS['equipment'];
                 </div>
               
                 
-                <div class="col-md-3 d-flex text-right">
+                <div class="col-md-3 d-flex text-right mt-2">
                     <p>
                         <button type="button"  class="btn btn-outline-success btn-sm fs-6" id="btnHistorial" data-toggle="tooltip" data-placement="bottom" title="Historial de mantenimiento" >
                             <a>
@@ -34,7 +34,7 @@ $equipment = $GLOBALS['equipment'];
                         </button>
                         <button type=button class="btn btn-outline-primary btn-sm  fs-6" id="btnAccesorios" data-toggle="tooltip" data-placement="bottom" title="Lista de accesorios">
                             <a>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-pci-card float-start me-2 ms-2" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-pci-card float-start me-2 " viewBox="0 0 16 16">
                                     <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .5.5V4h13.5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H2v2.5a.5.5 0 0 1-1 0V2H.5a.5.5 0 0 1-.5-.5Z"/>
                                     <path d="M3 12.5h3.5v1a.5.5 0 0 1-.5.5H3.5a.5.5 0 0 1-.5-.5v-1Zm4 0h4v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1Z"/>
                                 </svg>     
