@@ -1,7 +1,7 @@
 <?php
-include '../config.php';
+include_once ('../config.php');
 
-class EquipmentModel extends config
+class EquipmentModel 
 {
     public $id_equipo;
     public $marca;
@@ -30,7 +30,8 @@ class EquipmentModel extends config
 
         $this->equipment_list = array();
 
-        $this-> dbConn =  OpenConnection();
+        $db = new DbConnection();
+        $this-> dbConn =  $db->OpenConnection();
 
         mysqli_set_charset($this->dbConn, DB_CHARSET);
     }
