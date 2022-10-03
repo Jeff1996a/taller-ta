@@ -104,8 +104,6 @@ class EquipmentModel
 
             if ($this->equipment_list = mysqli_store_result($this->dbConn)) {
 
-                mysqli_close(this->dbConn);
-
                 return $this->equipment_list;
             }
         }
