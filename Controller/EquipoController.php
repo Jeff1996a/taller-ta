@@ -10,14 +10,14 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
     if(isset($_GET['action']) && isset($_GET['data'])){
 
+        include_once('../Model/EquipmentModel.php');
+
+        $equipment =  new EquipmentModel();
+
         $action = $_GET['action'];
         $data = json_decode($_GET['data']);
 
         if($action == 'listarEquipos'){
-
-            include_once('../Model/EquipmentModel.php');
-
-            $equipment =  new EquipmentModel();
 
             $category = $data->{'category'};
 
@@ -64,6 +64,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             }
 
             include_once ("../View/ListaEquipos.php");
+
+            mysqli_close($equipment->dbConn);
         }
 
         elseif ($action == 'viewAddEquipment'){
@@ -75,9 +77,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
         elseif ($action == 'viewHistory'){
 
-            include_once('../Model/EquipmentModel.php');
-
-            $equipment =  new EquipmentModel();
 
             $category = $data->{'category'};
 
@@ -90,6 +89,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             $num_filas = mysqli_num_rows($equipmentList);
 
             include_once ('../View/Historial_mantenimiento.php');
+
+            mysqli_close($equipment->dbConn);
+            
         }
 
         elseif($action == 'viewAddHistory'){
@@ -103,10 +105,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
         elseif($action == "viewAccesories"){
 
-            include_once('../Model/EquipmentModel.php');
-
-            $equipment =  new EquipmentModel();
-
             $id = $data->{'id'};
 
             $category = $data->{'category'};
@@ -118,13 +116,11 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             $num_filas = mysqli_num_rows($accesories);
 
             include_once "../View/AccesoriosEquipo.php";
+
+            mysqli_close($equipment->dbConn);
         }
 
         elseif($action == "update"){
-
-            include_once('../Model/EquipmentModel.php');
-
-            $equipment =  new EquipmentModel();
 
             $id = $data->{'id'};
 
@@ -150,16 +146,13 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             }
 
             include_once ('../View/ActualizarEquipo.php');
+
+            mysqli_close($equipment->dbConn);
         }
 
         elseif($action == "updateHistory"){
 
-            include_once ('../Model/Historial.php');
-            include_once('../Model/EquipmentModel.php');
-            
-            
-            $equipment =  new EquipmentModel();   
-            
+            include_once ('../Model/Historial.php');         
 
             $id = $data->{'id'};
 
@@ -184,15 +177,13 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             }
 
             include_once ('../View/ActualizarHistorial.php');
+
+            mysqli_close($equipment->dbConn);
         }
         elseif($action == "updateAccesorio"){
 
             include_once ('../Model/Accesorio.php');
-            include_once('../Model/EquipmentModel.php');
-            
-            
-            $equipment =  new EquipmentModel();   
-            
+
 
             $id = $data->{'id'};
 
@@ -212,6 +203,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             }
 
             include_once ('../View/ActualizarAccesorio.php');
+
+            mysqli_close($equipment->dbConn);
         }
 
         elseif($action == 'viewAddAccesories'){
@@ -295,6 +288,8 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
                     break;
             }
             include_once ("../View/ListaEquipos.php");
+
+            mysqli_close($equipment->dbConn);
        }
 
        if($action == "eliminar"){

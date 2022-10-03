@@ -22,7 +22,7 @@ class EquipmentModel
     public $file_array;
     public $action;
 
-    private $dbConn;
+    public $dbConn;
     private $equipment_list;
 
     function __construct(){
