@@ -27,7 +27,7 @@ class EquipmentModel
     function __construct(){
 
         $this-> dbConn =  mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE_NAME);
-        
+
         mysqli_set_charset($this->dbConn, DB_CHARSET);
     }
 
@@ -57,7 +57,7 @@ class EquipmentModel
 
             if ($result= mysqli_store_result($this->dbConn)) {
 
-               
+                mysqli_close($this->dbConn);
 
                 return $result;
             }
