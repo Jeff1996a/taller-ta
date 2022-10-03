@@ -218,6 +218,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
             include_once ('../View/AddAccesoriesEquipment.php');
         }
     }
+
+    mysqli_close($equipment->dbConn);
 }
 
 ////MÉTODOS POST/////////
@@ -786,6 +788,8 @@ elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         
     }
+
+    mysqli_close($equipment->dbConn);
 }
 
 //Funcion para validar los datos ingresados al filtro
