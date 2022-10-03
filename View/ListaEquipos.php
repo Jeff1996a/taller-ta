@@ -13,8 +13,8 @@ die;
             </div>
             
             <div class="col-sm-1">
-                <p class="fs-5 text-warning text-right">
-                    <button type="button" clas="btn btn-outline-warning" id="btnAddEquipment" data-toggle="tooltip" data-placement="bottom" title="Nuevo equipo">
+                <p class="fs-5  text-right">
+                    <button type="button" class="btn btn-outline-warning" id="btnAddEquipment" data-toggle="tooltip" data-placement="bottom" title="Nuevo equipo">
                         Nuevo
                         <a>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
