@@ -16,9 +16,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
         if($action == 'listarIncidencias' ){
 
-            include_once ('../Model/IncidenciasModel.php');
-
-            $incidencias = new IncidenciasModel();
 
             $title = "Incidencias";
 
@@ -39,18 +36,18 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
             $id = $data->{'id'};
 
-            $result = $incidencia->ObtenerIncidencia($id);
+            $result = $incidencias->ObtenerIncidencia($id);
 
             while ($row = mysqli_fetch_assoc($result)) {
-                $incidencia->id_incidencia = $row['id_inc'];
-                $incidencia->nombre = $row['nombre'];
-                $incidencia->quien_reporta = $row['reporta'];
-                $incidencia->responsable = $row['responsable'];
-                $incidencia->fecha_sop = $row['fecha_reporte'];
-                $incidencia->fecha_sol = $row['fecha_sol'];
-                $incidencia->problema = $row['prob'];
-                $incidencia->solucion = $row['sol'];
-                $incidencia->observacion = $row['obs'];
+                $incidencias->id_incidencia = $row['id_inc'];
+                $incidencias->nombre = $row['nombre'];
+                $incidencias->quien_reporta = $row['reporta'];
+                $incidencias->responsable = $row['responsable'];
+                $incidencias->fecha_sop = $row['fecha_reporte'];
+                $incidencias->fecha_sol = $row['fecha_sol'];
+                $incidencias->problema = $row['prob'];
+                $incidencias->solucion = $row['sol'];
+                $incidencias->observacion = $row['obs'];
             }
 
             include_once ('../View/ActualizarIncidencia.php');
@@ -72,7 +69,7 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
 
             $id = $data->{'id'};
 
-            $incidencia->EliminarIncidencia($id);
+            $incidencias->EliminarIncidencia($id);
        }
 
     
@@ -81,14 +78,14 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
     elseif(isset($_POST)){
 
         if($_POST['action'] == 'addIncidencia'){
-            $incidencia->nombre = $_POST['nombre'];
-            $incidencia->responsable = $_POST['responsable'];
-            $incidencia->quien_reporta = $_POST['reporta'];
-            $incidencia->fecha_sop = $_POST['fecha_reporte'];
-            $incidencia->fecha_sol = $_POST['fecha_solucion'];
-            $incidencia->problema = $_POST['problema'];
-            $incidencia->solucion = $_POST['solucion'];
-            $incidencia->observacion = $_POST['observacion'];
+            $incidencias->nombre = $_POST['nombre'];
+            $incidencias->responsable = $_POST['responsable'];
+            $incidencias->quien_reporta = $_POST['reporta'];
+            $incidencias->fecha_sop = $_POST['fecha_reporte'];
+            $incidencias->fecha_sol = $_POST['fecha_solucion'];
+            $incidencias->problema = $_POST['problema'];
+            $incidencias->solucion = $_POST['solucion'];
+            $incidencias->observacion = $_POST['observacion'];
           
             if(isset($_FILES['files'])){
                 // Count total files
@@ -135,27 +132,27 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
             }
 
             else{
-                $row = mysqli_fetch_assoc($incidencia->CrearIncidencia($incidencia));
+                $row = mysqli_fetch_assoc($incidencias->CrearIncidencia($incidencia));
 
-                $incidencia->result = $row["resultado"];
+                $incidencias->result = $row["resultado"];
             }
 
-            echo json_encode($incidencia);
+            echo json_encode($incidencias);
 
             die;
         }
 
         if($_POST['action'] == 'actualizarIncidencia' ){
 
-            $incidencia->id_incidencia = $_POST['id_incidencia'];
-            $incidencia->nombre = $_POST['nombre'];
-            $incidencia->responsable = $_POST['responsable'];
-            $incidencia->quien_reporta = $_POST['reporta'];
-            $incidencia->fecha_sop = $_POST['fecha_reporte'];
-            $incidencia->fecha_sol = $_POST['fecha_solucion'];
-            $incidencia->problema = $_POST['problema'];
-            $incidencia->solucion = $_POST['solucion'];
-            $incidencia->observacion = $_POST['observacion'];
+            $incidencias->id_incidencia = $_POST['id_incidencia'];
+            $incidencias->nombre = $_POST['nombre'];
+            $incidencias->responsable = $_POST['responsable'];
+            $incidencias->quien_reporta = $_POST['reporta'];
+            $incidencias->fecha_sop = $_POST['fecha_reporte'];
+            $incidencias->fecha_sol = $_POST['fecha_solucion'];
+            $incidencias->problema = $_POST['problema'];
+            $incidencias->solucion = $_POST['solucion'];
+            $incidencias->observacion = $_POST['observacion'];
 
             if(isset($_FILES['files'])){
                 // Count total files
@@ -203,12 +200,12 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
 
             else{
 
-                $row = mysqli_fetch_assoc($incidencia->ActualizarIncidencia($incidencia));
+                $row = mysqli_fetch_assoc($incidencias->ActualizarIncidencia($incidencias));
    
-                $incidencia->result = $row["resultado"];
+                $incidencias->result = $row["resultado"];
             }
 
-            echo json_encode($incidencia);
+            echo json_encode($incidencias);
 
             die;
         }
