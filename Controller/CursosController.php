@@ -1,5 +1,9 @@
 <?php
 
+include_once ('../Model/CursosModel.php');
+
+$cursos = new CursosModel();
+
 $action = '';
 $data = '';
 
@@ -12,10 +16,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
         if($action == 'listarCursos' ){
 
-            include_once ('../Model/CursosModel.php');
-
-            $cursos = new CursosModel();
-
             $title = "Soportes";
 
             $list = $cursos->LeerCursos();
@@ -27,19 +27,15 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
         elseif($action == "update"){
 
-            include_once('../Model/CursosModel.php');
-
-            $curso =  new CursosModel();
-
             $id = $data->{'id'};
 
-            $result = $curso->ObtenerCurso($id);
+            $result = $cursos->ObtenerCurso($id);
 
             while ($row = mysqli_fetch_assoc($result)) {
-                $curso->id_curso = $row['idCurso'];
-                $curso->nombreCurso = $row['nombreCurso'];
-                $curso->descripcion = $row['descripcion'];
-                $curso->url = $row['enlace'];
+                $cursos->id_curso = $row['idCurso'];
+                $cursos->nombreCurso = $row['nombreCurso'];
+                $cursos->descripcion = $row['descripcion'];
+                $cursos->url = $row['enlace'];
             }
 
             include_once ('../View/ActualizarCurso.php');
@@ -63,27 +59,20 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if($action == "eliminar"){
 
-            include_once('../Model/CursosModel.php');
-
-            $curso =  new CursosModel();
-
             $id = $data->{'id'};
 
-            $curso->EliminarCurso($id);
+            $cursos->EliminarCurso($id);
        }
 
     }
 
     elseif(isset($_POST)){
-        include_once ('../Model/CursosModel.php');
-
-        $curso = new CursosModel();
 
         if($_POST['action'] == 'addCurso'){
 
-            $curso->nombre = $_POST['nombreCurso'];
-            $curso->descripcion = $_POST['descripcion'];
-            $curso->url = $_POST['url'];
+            $cursos->nombre = $_POST['nombreCurso'];
+            $cursos->descripcion = $_POST['descripcion'];
+            $cursos->url = $_POST['url'];
           
             if(isset($_FILES['files'])){
                 // Count total files
@@ -132,19 +121,19 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
             else{
                 $row = mysqli_fetch_assoc($curso->CrearCurso($curso));
 
-                $curso->result = $row["resultado"];
+                $cursos->result = $row["resultado"];
             }
 
-            echo json_encode($curso);
+            echo json_encode($cursos);
 
             die;
         }
 
         if($_POST['action'] == 'update' ){
-            $curso->id_curso = $_POST['id_curso'];
-            $curso->nombreCurso = $_POST['nombre'];
-            $curso->descripcion = $_POST['descripcion'];
-            $curso->url = $_POST['url'];
+            $cursos->id_curso = $_POST['id_curso'];
+            $cursos->nombreCurso = $_POST['nombre'];
+            $cursos->descripcion = $_POST['descripcion'];
+            $cursos->url = $_POST['url'];
 
             if(isset($_FILES['files'])){
                 // Count total files
@@ -192,12 +181,12 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
 
             else{
 
-                $row = mysqli_fetch_assoc($curso->ActualizarCurso($curso));
+                $row = mysqli_fetch_assoc($cursos->ActualizarCurso($curso));
    
-                $curso->result = $row["resultado"];
+                $cursos->result = $row["resultado"];
             }
 
-            echo json_encode($curso);
+            echo json_encode($cursos);
 
             die;
         }
