@@ -22,7 +22,7 @@ class TransmisionModel
 
         $this-> transmision_list = array();
         
-        $this-> db =  mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE_NAME);
+        $this-> db =  new DbConnection();
 
     }
 
