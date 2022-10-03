@@ -119,7 +119,6 @@ class EquipmentModel
 
             if ($result = mysqli_store_result($this->dbConn)) {
 
-                mysqli_close(this->dbConn);
 
                 return $result;
             }
@@ -135,7 +134,7 @@ class EquipmentModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
-                mysqli_close(this->dbConn);
+
                 return $result;
             }
         }
@@ -149,7 +148,7 @@ class EquipmentModel
 
         while (mysqli_more_results($this->dbConn)) {
             if ($result = mysqli_store_result($this->dbConn)) {
-                mysqli_close(this->dbConn);
+
                 return $result;
             }
         }
@@ -164,7 +163,7 @@ class EquipmentModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
-                mysqli_close(this->dbConn);
+
                 return $result;
             }
         }
@@ -179,7 +178,7 @@ class EquipmentModel
         while (mysqli_more_results($this->dbConn)) {
 
             if ($result = mysqli_store_result($this->dbConn)) {
-                mysqli_close(this->dbConn);
+
                 return $result;
             }
         }
