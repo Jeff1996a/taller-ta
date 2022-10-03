@@ -22,7 +22,7 @@ $equipment = $GLOBALS['equipment'];
               
                 
                 <div class="col-md-3 d-flex text-right mt-2">
-                    <p class="fs-5" role="button">
+                    <button class="fs-5" role="button">
                         <a id="btnHistorial"  class="text-success text-end" data-toggle="tooltip" data-placement="bottom" title="Historial de mantenimiento">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar-week float-end  me-2" viewBox="0 0 16 16">
                                     <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
@@ -31,7 +31,7 @@ $equipment = $GLOBALS['equipment'];
                         </a>
                         Historial
                         
-                    </p>
+                    </button>
                     <p class="fs-5" role="button">
                         <a id="btnAccesorios" role="button" class="text-primary" data-toggle="tooltip" data-placement="bottom" title="Lista de accesorios">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pci-card float-end me-2 ms-2" viewBox="0 0 16 16">
