@@ -43,7 +43,7 @@ $equipment = $GLOBALS['equipment'];
                 </div>
             </div>
         </div>
-        </hr>
+        <hr>
         <div class="mb-2 row">
             <div class="mb-2 col">
                 <label for="txtMarca" class="col-sm-2 col-form-label">Marca:</label>
