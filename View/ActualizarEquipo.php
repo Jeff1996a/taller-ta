@@ -82,7 +82,7 @@ $equipment = $GLOBALS['equipment'];
                     echo '
                     <div class="mb-3 col">
                         <label for="dpFechaInst" class="col-sm-3 col-form-label">Fecha instalación:</label>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <input type="date" class="form-control" id="dpFechaInst" value="'.$equipment->fecha_inst.'" name="fechaInst">
                         </div>
                     </div>';
@@ -92,7 +92,7 @@ $equipment = $GLOBALS['equipment'];
                     echo '
                     <div class="mb-3 col">
                         <label for="dpFechaInst" class="col-sm-3 col-form-label">Fecha instalación:</label>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <input type="date" class="form-control" id="dpFechaInst" value="'.$equipment->fecha_inst.'" name="fechaInst" disabled>
                         </div>
                     </div>';
