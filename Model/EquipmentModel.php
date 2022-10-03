@@ -1,7 +1,7 @@
 <?php
 include '../config.php';
 
-class EquipmentModel
+class EquipmentModel extends dbConnection
 {
     public $id_equipo;
     public $marca;
@@ -29,7 +29,7 @@ class EquipmentModel
 
         $this->equipment_list = array();
 
-        $this-> dbConn =  mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE_NAME);
+        $this-> dbConn =  OpenConnection();
 
         mysqli_set_charset($this->dbConn, DB_CHARSET);
     }
