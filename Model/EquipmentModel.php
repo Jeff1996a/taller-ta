@@ -325,8 +325,6 @@ class EquipmentModel
                 return $result;
             }
         }
-
-        mysqli_close($dbConn);
     }
 
     function ActualizarEquipo($obj){
