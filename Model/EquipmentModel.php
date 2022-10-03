@@ -1,7 +1,7 @@
 <?php
 include '../config.php';
 
-class EquipmentModel extends dbConnection
+class EquipmentModel extends config
 {
     public $id_equipo;
     public $marca;
@@ -21,6 +21,7 @@ class EquipmentModel extends dbConnection
     public $result;
     public $file_array;
     public $action;
+
 
     public $dbConn;
     public $equipment_list;

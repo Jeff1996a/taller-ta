@@ -16,7 +16,7 @@
  	*/
 	define('PAGINA_ERROR', 'error_page.php');
 
-	class dbConnection {
+	class config {
 
 		private $dbConn;
 
