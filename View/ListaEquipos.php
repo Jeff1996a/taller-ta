@@ -14,7 +14,7 @@ die;
             
             <div class="col-sm-2 text-right">
                 <p>
-                    <button type="button" class="btn btn-outline-primary btn-sm fs-4 float-end"  id="btnAddEquipment" data-toggle="tooltip" data-placement="bottom" title="Nuevo equipo">
+                    <button type="button" class="btn btn-outline-primary btn-sm fs-5 float-end"  id="btnAddEquipment" data-toggle="tooltip" data-placement="bottom" title="Nuevo equipo">
                         Nuevo
                         <a>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
