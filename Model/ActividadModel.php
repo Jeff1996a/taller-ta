@@ -11,7 +11,7 @@ class ActividadModel
     public $id_registro;
     public $result; 
 
-    private $dbConn;
+    private $db;
 
     function __construct(){
         $this->db = new DbConnection();
@@ -21,12 +21,12 @@ class ActividadModel
     function LeerActividades(){
 
         $this->db = new DbConnection();
-        mysqli_multi_query ($this->dbConn, "CALL uspLeerActividades") OR DIE (mysqli_error($this->dbConn));
-        while (mysqli_more_results($this->dbConn)) {
+        mysqli_multi_query ($dbConn, "CALL uspLeerActividades") OR DIE (mysqli_error($dbConn));
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
                 return $result;
             }
         }
@@ -36,17 +36,17 @@ class ActividadModel
     function CrearActividad($obj){
 
         $this->db = new DbConnection();
-        mysqli_query($this->dbConn ,"SET @nick='".$obj->usuario."'");
-        mysqli_query($this->dbConn ,"SET @correo='".$obj->email."'");
-        mysqli_query($this->dbConn ,"SET @acti='".$obj->actividad."'");
+        mysqli_query($dbConn ,"SET @nick='".$obj->usuario."'");
+        mysqli_query($dbConn ,"SET @correo='".$obj->email."'");
+        mysqli_query($dbConn ,"SET @acti='".$obj->actividad."'");
 
-        mysqli_multi_query ($this->dbConn, "CALL uspCrearActividad(@nick,@correo,@acti)") OR DIE (mysqli_error($this->dbConn));
+        mysqli_multi_query ($dbConn, "CALL uspCrearActividad(@nick,@correo,@acti)") OR DIE (mysqli_error($dbConn));
 
-        while (mysqli_more_results($this->dbConn)) {
+        while (mysqli_more_results($dbConn)) {
 
-            if ($result = mysqli_store_result($this->dbConn)) {
+            if ($result = mysqli_store_result($dbConn)) {
 
-                mysqli_close($this->dbConn);
+                mysqli_close($dbConn);
 
                 return $result;
             }

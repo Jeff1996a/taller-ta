@@ -15,10 +15,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
         if($action == 'listarActividades' ){
 
-            include_once ('../Model/ActividadModel.php');
-
-            $actividad = new ActividadModel();
-
             $title = "Actividades registradas";
 
             $list = $actividad->LeerActividades();
