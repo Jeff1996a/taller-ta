@@ -21,7 +21,7 @@ $equipment = $GLOBALS['equipment'];
                 </div>
               
                 
-                <div class="col-md-3 d-flex text-right">
+                <div class="col-md-3 d-flex text-right mt-2">
                     <p class="fs-5">
                         Historial
                         <a id="btnHistorial" role="button" class="text-success text-end" data-toggle="tooltip" data-placement="bottom" title="Historial de mantenimiento">
@@ -43,7 +43,7 @@ $equipment = $GLOBALS['equipment'];
                 </div>
             </div>
         </div>
-
+        </hr>
         <div class="mb-2 row">
             <div class="mb-2 col">
                 <label for="txtMarca" class="col-sm-2 col-form-label">Marca:</label>
