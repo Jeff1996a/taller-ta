@@ -22,7 +22,7 @@ class EquipmentModel
     public $file_array;
     public $action;
 
-
+    private $db;
     public $dbConn;
     public $equipment_list;
 
@@ -30,14 +30,17 @@ class EquipmentModel
 
         $this->equipment_list = array();
 
-        $db = new DbConnection();
-        $this-> dbConn =  $db->OpenConnection();
+        $this->db = new DbConnection();
+        
 
         mysqli_set_charset($this->dbConn, DB_CHARSET);
     }
 
 
     function CrearEquipo($obj){
+
+        $this-> dbConn =  $this->db->OpenConnection();
+
         mysqli_query($this->dbConn ,"SET @Marca='".$obj->marca."'");
         mysqli_query($this->dbConn ,"SET @Modelo='".$obj->modelo."'");
         mysqli_query($this->dbConn ,"SET @Descripcion='".$obj->descripcion."'");
@@ -70,6 +73,8 @@ class EquipmentModel
     }
 
     function GuardarArchivo($path, $id){
+
+        $this-> dbConn =  $this->db->OpenConnection();
         mysqli_query($this->dbConn,"SET @Path='".$path."'" );
         mysqli_query($this->dbConn,"SET @Id_equipo='".$id."'" );
         mysqli_multi_query ($this->dbConn, "CALL uspInsertarAdjEquipo(@Path, @Id_equipo)")
@@ -89,6 +94,8 @@ class EquipmentModel
 
 
     function GetEquipmentList(){
+
+        $this-> dbConn =  $this->db->OpenConnection();
         mysqli_multi_query ($this->dbConn, "CALL uspVistaListaEquipos") OR DIE (mysqli_error($this->dbConn));
         while (mysqli_more_results($this->dbConn)) {
 
@@ -103,6 +110,9 @@ class EquipmentModel
     }
 
     function GetEquimentByType($category){
+
+        $this-> dbConn =  $this->db->OpenConnection();
+        
         mysqli_query($this->dbConn ,"SET @type='".$category."'");
 
         mysqli_multi_query ($this->dbConn, "CALL uspGetEquipmentByType(@type)") OR DIE (mysqli_error($this->dbConn));

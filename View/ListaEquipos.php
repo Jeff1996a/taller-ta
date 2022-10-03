@@ -12,9 +12,9 @@ die;
                 <h1><?=$GLOBALS['title']?></h1>
             </div>
             
-            <div class="col-sm-2">
-                <p class="fs-5  text-right">
-                    <button type="button" class="btn btn-outline-warning btn-sm"  id="btnAddEquipment" data-toggle="tooltip" data-placement="bottom" title="Nuevo equipo">
+            <div class="col-sm-2 text-right">
+                <p>
+                    <button type="button" class="btn btn-outline-warning btn-sm fs-5"  id="btnAddEquipment" data-toggle="tooltip" data-placement="bottom" title="Nuevo equipo">
                         Nuevo
                         <a>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
@@ -220,7 +220,6 @@ die;
       $('#tblEquipos').on('click','#btnAccesorios', function(){
           const row =  $(this).closest('tr');
           msg.id= row.find("td.idEquipo").text();
-
           msg.category = '<?=$GLOBALS['category']?>';
 
           $.ajax({
