@@ -109,11 +109,11 @@ die;
 
         $("#btnRegresar").click(function(){
             msg.category = '<?=$GLOBALS['category']?>';
-
+            msg.id = <?=$GLOBALS['id']?>
             $.ajax({
                 type:'GET',
                 url: 'Controller/EquipoController.php',
-                data: {data: JSON.stringify(msg), action:'listarEquipos'},
+                data: {data: JSON.stringify(msg), action:'update'},
                 success: function(response){
                     $('#content').html(response);
                 }
