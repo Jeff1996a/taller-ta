@@ -241,9 +241,43 @@ $equipment = $GLOBALS['equipment'];
 <div id='preview'></div>
 <script type="text/javascript">
     $(document).ready(function () {
+
         const msg = {
             category: ''
         };
+
+        //Ver el historial de un equipo
+      $('#btnHistorial').click( function(){
+          msg.id= <?=$equipment->id_equipo?>;
+
+          msg.category = '<?=$GLOBALS['category']?>';
+
+          $.ajax({
+              type:'GET',
+              url: 'Controller/EquipoController.php',
+              data: {data: JSON.stringify(msg), action:'viewHistory'},
+              success: function(response){
+                  $('#content').html(response);
+              }
+          });
+      });
+
+
+      //Ver accesorios de un equipo
+      $('#btnAccesorios').click( function(){
+          msg.id= msg.id= <?=$equipment->id_equipo?>;
+
+          msg.category = '<?=$GLOBALS['category']?>';
+
+          $.ajax({
+              type:'GET',
+              url: 'Controller/EquipoController.php',
+              data: {data: JSON.stringify(msg), action:'viewAccesories'},
+              success: function(response){
+                  $('#content').html(response);
+              }
+          });
+      });
 
         const marca2 = $('#txtMarca').val();
         const modelo2 = $('#txtModelo').val();
