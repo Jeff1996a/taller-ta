@@ -1,4 +1,9 @@
 <?php
+
+include_once ('../Model/TransmisionModel.php');
+
+$transmision = new TransmisionModel();
+
 $action = '';
 
 $data = '';
@@ -14,10 +19,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
         //Listado de transmisiones
         if($action == 'listarTransmisiones'){
-
-            include_once ('../Model/TransmisionModel.php');
-
-            $transmision = new TransmisionModel();
 
             $title = "Transmisiones";
 
@@ -45,10 +46,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         //Lista de equipos utilizados en transmisiones
         elseif($action == "listarAccesorios"){
 
-            include_once ('../Model/TransmisionModel.php');
-
-            $transmision = new TransmisionModel();
-
             $id = $data->{'id'};
 
             $title = "Lista de equipos";
@@ -61,10 +58,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         }
 
         elseif($action == "update"){
-
-            include_once('../Model/TransmisionModel.php');
-
-            $transmision =  new TransmisionModel();
 
             $id = $data->{'id'};
 
@@ -88,10 +81,6 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         elseif($action == "updateEquTrans"){
 
             include_once('../Model/AccesorioTransmision.php');
-
-            include_once ('../Model/TransmisionModel.php');
-
-            $transmision = new TransmisionModel();
 
             $equTrans =  new AccesorioTransmision();
 
@@ -126,20 +115,12 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if($action == "eliminar"){
 
-            include_once('../Model/TransmisionModel.php');
-
-            $transmision =  new TransmisionModel();
-
             $id = $data->{'id'};
 
             $transmision->EliminarTransmision($id);
        }
 
        elseif($action == "eliminarEquiTrans"){
-
-            include_once('../Model/TransmisionModel.php');
-
-            $transmision =  new TransmisionModel();
 
             $id = $data->{'id'};
 
@@ -148,10 +129,6 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     elseif(isset($_POST)){
-        
-        include_once ('../Model/TransmisionModel.php');
-
-        $transmision = new TransmisionModel();
 
         if($_POST['action'] == 'addTransmision'){
             $transmision->nombre = $_POST['nombre'];

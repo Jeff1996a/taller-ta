@@ -22,6 +22,7 @@
 
 		function OpenConnection(){
 			$this->dbConn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE_NAME);
+			mysqli_set_charset($this->dbConn, DB_CHARSET);
 			return $this->dbConn;
 		}
 
