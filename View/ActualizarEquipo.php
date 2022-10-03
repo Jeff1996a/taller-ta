@@ -21,7 +21,7 @@ $equipment = $GLOBALS['equipment'];
                 </div>
               
                 
-                <div class="col-md-3 d-flex text-right mt-2">
+                <div class="col-md-3 d-flex justify-content-between text-right mt-2">
                     <p>
                         <button type="button"  class="btn btn-outline-success btn-sm fs-6" id="btnHistorial" data-toggle="tooltip" data-placement="bottom" title="Historial de mantenimiento" >
                             <a>
