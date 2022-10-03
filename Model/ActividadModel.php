@@ -14,12 +14,13 @@ class ActividadModel
     private $dbConn;
 
     function __construct(){
-        $this-> dbConn =  mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE_NAME);
-        mysqli_set_charset($this->dbConn, DB_CHARSET);
+        $this->db = new DbConnection();
     }
 
     //Obtener la lista de actividades realizadas por los usuarios
     function LeerActividades(){
+
+        $this->db = new DbConnection();
         mysqli_multi_query ($this->dbConn, "CALL uspLeerActividades") OR DIE (mysqli_error($this->dbConn));
         while (mysqli_more_results($this->dbConn)) {
 
@@ -33,6 +34,8 @@ class ActividadModel
 
     //Crear una actividad
     function CrearActividad($obj){
+
+        $this->db = new DbConnection();
         mysqli_query($this->dbConn ,"SET @nick='".$obj->usuario."'");
         mysqli_query($this->dbConn ,"SET @correo='".$obj->email."'");
         mysqli_query($this->dbConn ,"SET @acti='".$obj->actividad."'");
