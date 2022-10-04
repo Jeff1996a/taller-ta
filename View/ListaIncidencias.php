@@ -8,8 +8,21 @@ die;
 <div class="container-fluid">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-11">
+            <div class="col-sm-10">
                 <h1><?=$GLOBALS['title']?></h1>
+            </div>
+            <div class="col-sm-2 text-right mt-2">
+                <p>
+                    <button type="button" class="btn btn-outline-primary btn-sm fs-5 float-end"  id="btnAddIncidencia" data-toggle="tooltip" data-placement="bottom" title="Nueva incidencia">
+                        Nuevo
+                        <a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-square-fill mb-1" viewBox="0 0 16 16">
+                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                            </svg>
+                        </a>
+                    </button>
+                    
+                </p>
             </div>
             <div class="col-lg-1" role="button" id="btnAddIncidencia">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#ff9000" class="bi bi-plus-circle-fill float-end" viewBox="0 0 16 16">
