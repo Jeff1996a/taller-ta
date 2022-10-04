@@ -306,6 +306,7 @@ class EquipmentModel
                 return $result;
             }
         }
+        mysqli_close($dbConn);
     }
 
     function ObtenerEquipo($id){
@@ -325,6 +326,8 @@ class EquipmentModel
                 return $result;
             }
         }
+
+        mysqli_close($dbConn);
     }
 
     function ActualizarEquipo($obj){
@@ -359,11 +362,13 @@ class EquipmentModel
                 return $result;
             }
         }
+        mysqli_close($dbConn);
     }
 
     function EliminarEquipo($id){
 
         $dbConn =  $this->db->OpenConnection();
+
         mysqli_query($dbConn ,"SET @id='".$id."'");
 
         mysqli_multi_query ($dbConn, "CALL uspEliminarEquipo(@id)") OR DIE (mysqli_error($dbConn));
@@ -377,6 +382,8 @@ class EquipmentModel
                 return $result;
             }
         }
+
+        mysqli_close($dbConn);
     }
 
     //Obtener historial
@@ -396,6 +403,7 @@ class EquipmentModel
                 return $result;
             }
         }
+        mysqli_close($dbConn);
     }
 
     function ActualizarHistorial($obj){
@@ -425,6 +433,7 @@ class EquipmentModel
                 return $result;
             }
         }
+        mysqli_close($dbConn);
     }
 
     function EliminarHistorial($id){
@@ -443,6 +452,7 @@ class EquipmentModel
                 return $result;
             }
         }
+        mysqli_close($dbConn);
     }
 
     function ObtenerAccesorio($id){
@@ -460,6 +470,7 @@ class EquipmentModel
                 return $result;
             }
         }
+        mysqli_close($dbConn);
     }
 
     function ActualizarAccesorio($obj){
@@ -484,6 +495,7 @@ class EquipmentModel
                 return $result;
             }
         }
+        mysqli_close($dbConn);
     }
 
     function EliminarAccesorio($id){
@@ -501,6 +513,7 @@ class EquipmentModel
                 return $result;
             }
         }
+        mysqli_close($dbConn);
     }
    
 }
