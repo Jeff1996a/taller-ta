@@ -48,7 +48,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
             $id = $data->{'id'};
 
-            $title = "Lista de equipos";
+            $title = "Lista de equipos de transmisión";
 
             $list = $transmision->ObtenerEquiposPorTransmision($id);
 

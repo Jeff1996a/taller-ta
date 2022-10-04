@@ -8,17 +8,17 @@ die;
 <div class="container-fluid">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-1">
+            <div class="col-sm-1">
                 <div id="btnRegresar" class="text-warning" role="button" data-toggle="tooltip" data-placement="bottom" title="Regresar">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left-square-fill me-2 mt-2" viewBox="0 0 16 16">
                         <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
                     </svg>
                 </div>
             </div>
-            <div class="col-lg-10">
+            <div class="col-sm-9">
                 <h1><?=$GLOBALS['title']?></h1>
             </div>
-            <div class="text-right mt-2">
+            <div class="col-sm-2 text-right mt-2">
                 <p>
                     <button type="button" class="btn btn-outline-primary btn-sm fs-5 float-end"  id="btnAddEquipo" data-toggle="tooltip" data-placement="bottom" title="Nuevo historial">
                         Nuevo
