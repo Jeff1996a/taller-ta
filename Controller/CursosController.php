@@ -119,7 +119,7 @@ elseif($_SERVER["REQUEST_METHOD"] == "POST"){
             }
 
             else{
-                $row = mysqli_fetch_assoc($curso->CrearCurso($curso));
+                $row = mysqli_fetch_assoc($cursos->CrearCurso($cursos));
 
                 $cursos->result = $row["resultado"];
             }
