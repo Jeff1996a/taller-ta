@@ -4,7 +4,7 @@ if (!isset($_SESSION['usuario_sesion'])) {
 header('Location: index.php');
 die;
 }
-$incidencia = $GLOBALS['incidencia']
+$incidencia = $GLOBALS['incidencias']
 ?>
 
 <form action="" method="post" id="frmActualizarIncidencia">
